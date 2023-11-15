@@ -1,27 +1,46 @@
-package com.pizzashop.H2database.model;
 
-import org.springframework.data.annotation.Id;
+package com.pizzaShopBoys.app.model;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 
 public class Employee {
     // FIELDS
     // @id means id will auto generate
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private double salary;
-    private String employee_role;
+    private String employeeRole;
 
-    protected Employee(){};
-
-    public Employee(int id, String first_name, String last_name, double salary, String employee_role) {
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.salary = salary;
-        this.employee_role = employee_role;
+    // CONSTRUCTOR
+    public Employee() {
     }
+
+    public Employee(String firstName, String lastName, double salary, String employeeRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        this.employeeRole = employeeRole;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salary=" + salary +
+                ", employeeRole='" + employeeRole + '\'' +
+                '}';
+    }
+    // GETTERS and SETTERS
+
 
     public int getId() {
         return id;
@@ -31,20 +50,22 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFirst_Name() {
-        return first_name;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+
     }
 
     public double getSalary() {
@@ -55,18 +76,13 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getEmployee_role() {
-        return employee_role;
+    public String getEmployeeRole() {
+        return employeeRole;
     }
 
-    public void setEmployee_role(String employee_role) {
-        this.employee_role = employee_role;
+    public void setEmployeeRole(String employeeRole) {
+        this.employeeRole = employeeRole;
     }
-
-    @Override
-    public String toString() {
-        return "Employee [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", salary=" + salary
-                + ", employee_role=" + employee_role + "]";
-    }
-
 }
+
+
