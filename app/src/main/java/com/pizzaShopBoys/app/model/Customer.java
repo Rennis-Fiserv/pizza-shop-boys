@@ -1,4 +1,5 @@
 package com.pizzaShopBoys.app.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,11 +11,11 @@ public class Customer {
     // @id means id will auto generate
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
-    private String phone;
+    private String phone_number;
 
     // CONSTRUCTOR
     public Customer() {
@@ -23,7 +24,7 @@ public class Customer {
     public Customer(String firstName, String lastName, String phone) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phone = phone;
+        this.phone_number = phone;
     }
 
     @Override
@@ -32,11 +33,10 @@ public class Customer {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phone='" + phone_number + '\'' +
                 '}';
     }
     // GETTERS and SETTERS
-
 
     public int getId() {
         return id;
@@ -45,7 +45,6 @@ public class Customer {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -64,13 +63,11 @@ public class Customer {
 
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone_number(String phone) {
+        this.phone_number = phone;
     }
 }
-
-
