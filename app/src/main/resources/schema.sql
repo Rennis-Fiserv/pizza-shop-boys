@@ -13,11 +13,11 @@ CREATE TABLE if NOT EXISTS EMPLOYEE(
     employee_role VARCHAR(45),
     PRIMARY KEY (id));
 
-    CREATE TABLE if NOT EXISTS CUSTOMER(
+CREATE TABLE if NOT EXISTS CUSTOMER(
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(45),
     last_name VARCHAR(45),
-    phone_number BIGINT,
+    phone_number VARCHAR(45),
     PRIMARY KEY (id));
 
 CREATE TABLE if NOT EXISTS zip(
