@@ -1,8 +1,10 @@
+
 package com.pizzaShopBoys.app.model;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 
 public class Employee {
     // FIELDS
@@ -39,6 +41,7 @@ public class Employee {
     }
     // GETTERS and SETTERS
 
+
     public int getId() {
         return id;
     }
@@ -46,6 +49,7 @@ public class Employee {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -61,6 +65,7 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+
     }
 
     public double getSalary() {
@@ -79,3 +84,5 @@ public class Employee {
         this.employeeRole = employeeRole;
     }
 }
+
+
