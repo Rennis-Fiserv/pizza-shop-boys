@@ -2,18 +2,17 @@ package com.pizzaShopBoys.app.service;
 
 import com.pizzaShopBoys.app.model.Employee;
 import com.pizzaShopBoys.app.repository.EmployeeRepository;
-
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class EmployeeService {
     @Autowired
-
      EmployeeRepository employeeRepository;
 
 //    CREATE
@@ -41,9 +40,7 @@ public class EmployeeService {
     public void deleteEmployeeById(int id){
         employeeRepository.deleteById(id);
     }
-
     public void deleteAllEmployee(){
         employeeRepository.deleteAll();
     }
-
 }
