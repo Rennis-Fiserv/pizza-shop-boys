@@ -1,10 +1,7 @@
 
 package com.pizzaShopBoys.app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
@@ -18,6 +15,8 @@ public class Employee {
     private String lastName;
     private double salary;
     private String employeeRole;
+    @Column(columnDefinition = "boolean default true")
+    private boolean isActive = true;
 
     // CONSTRUCTOR
     public Employee() {
@@ -37,7 +36,7 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", salary=" + salary +
-                ", employeeRole='" + employeeRole + '\'' +
+                ", employeeRole='" + employeeRole + '\'' + ", isActive='" + isActive +
                 '}';
     }
     // GETTERS and SETTERS
@@ -83,6 +82,14 @@ public class Employee {
 
     public void setEmployeeRole(String employeeRole) {
         this.employeeRole = employeeRole;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 }
 
