@@ -31,7 +31,7 @@ const EmployeeAdd = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await fetch(`/api/employees${employee.id ? `/${employee.id}` : ''}`, {
+    await fetch(`/api/employees`, {
       //method: (employee.id) ? 'PUT' : 'POST',
       method: 'POST',
       headers: {
@@ -85,4 +85,4 @@ const EmployeeAdd = () => {
   )
 };
 
-export default EmployeeEdit;
+export default EmployeeAdd;
