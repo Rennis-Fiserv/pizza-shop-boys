@@ -10,6 +10,7 @@ CREATE TABLE if NOT EXISTS EMPLOYEE(
     last_name VARCHAR(45),
     salary DOUBLE,
     employee_role VARCHAR(45),
+    is_active BOOLEAN NOT NULL DEFAULT 0,
     PRIMARY KEY (id));
 
 CREATE TABLE if NOT EXISTS CUSTOMER(
@@ -28,8 +29,9 @@ CREATE TABLE if NOT EXISTS zip(
 CREATE TABLE if NOT EXISTS order_detail(
     order_detail_id INT NOT NULL ,
     product_id INT NOT NULL,
-    quantity INT,
-    price NUMERIC,
+    quantity INT NOT NULL,
+    discount NUMERIC DEFAULT 0.0,
+    sub_total NUMERIC NOT NULL,
     PRIMARY KEY (order_detail_id, product_id),
     FOREIGN KEY (order_detail_id) REFERENCES customer_order(id),
     FOREIGN KEY (product_id) REFERENCES product(id));
@@ -39,7 +41,8 @@ CREATE TABLE if NOT EXISTS customer_order(
     zip INT NOT NULL,
     employee_fk INT NOT NULL,
     customer_fk INT NOT NULL,
-    order_placed_date DATETIME,
+    order_placed_date DATETIME NOT NULL,
+    street_address VARCHAR(100) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (employee_fk) REFERENCES employee(id),
     FOREIGN KEY (customer_fk) REFERENCES customer(id));
