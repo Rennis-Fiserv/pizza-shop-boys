@@ -1,7 +1,6 @@
 CREATE TABLE if NOT EXISTS PRODUCT(
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(45),
-    price DOUBLE,
     serving VARCHAR(45),
     PRIMARY KEY (id));
 
@@ -25,3 +24,32 @@ CREATE TABLE if NOT EXISTS zip(
     city VARCHAR(45),
     state VARCHAR(45),
     PRIMARY KEY (zip));
+
+CREATE TABLE if NOT EXISTS order_detail(
+    order_detail_id INT NOT NULL ,
+    product_id INT NOT NULL,
+    quantity INT,
+    price NUMERIC,
+    PRIMARY KEY (order_detail_id, product_id),
+    FOREIGN KEY (order_detail_id) REFERENCES customer_order(id),
+    FOREIGN KEY (product_id) REFERENCES product(id));
+
+CREATE TABLE if NOT EXISTS customer_order(
+    id INT NOT NULL,
+    zip INT NOT NULL,
+    employee_fk INT NOT NULL,
+    customer_fk INT NOT NULL,
+    order_placed_date DATETIME,
+    PRIMARY KEY (id),
+    FOREIGN KEY (employee_fk) REFERENCES employee(id),
+    FOREIGN KEY (customer_fk) REFERENCES customer(id));
+
+CREATE TABLE if NOT EXISTS price_history(
+    id INT NOT NULL,
+    product_id INT NOT NULL,
+    price NUMERIC,
+    start_date DATE NOT NULL,
+    end_date DATE,
+    PRIMARY KEY (id),
+    FOREIGN KEY (product_id) REFERENCES product(id));
+
