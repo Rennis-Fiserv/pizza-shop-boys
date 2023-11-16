@@ -78,8 +78,10 @@ const Products = (props) => {
             <thead>
               <tr>
                 <th width="20%">Cart</th>
-                <th width="20%">Quantity</th>
-                <th width="20%">Item</th>
+              </tr>
+              <tr>
+              <th width="20%">Quantity</th>
+              <th width="20%">Item</th>
               </tr>
             </thead>
             <tbody>Joeseppi</tbody>
