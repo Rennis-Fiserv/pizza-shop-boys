@@ -54,9 +54,9 @@ const EmployeeInfo = () => {
     <div>
       <Container fluid>
         <div className="float-end">
-          <Button color="success" tag={Link} to="/groups/new">Add Employee</Button>
+          <Button color="success" tag={Link} to="/employees/new">Add Employee</Button>
         </div>
-        <h3>New Employee</h3>
+        <h3>Employees</h3>
         <Table className="mt-4">
           <thead>
           <tr>
