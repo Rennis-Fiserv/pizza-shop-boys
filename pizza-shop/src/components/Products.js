@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonGroup, Container, Table } from 'reactstrap';
+import { Button, ButtonGroup, Container, Table } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
 const Products = (props) => {
@@ -71,22 +71,18 @@ const Products = (props) => {
       </div>
 
       <div>
-        <Container fluid>
-          <div className="float-end">
-          </div>
-          <Table className="mt-4">
+          <div className="float-end"></div>
+          <Table >
             <thead>
               <tr>
-                <th width="20%">Cart</th>
+                <th colSpan={20}>Cart</th>
               </tr>
               <tr>
-              <th width="20%">Quantity</th>
-              <th width="20%">Item</th>
+                <th>Quantity</th>
+                <th>Item</th>
               </tr>
             </thead>
-            <tbody>Joeseppi</tbody>
           </Table>
-        </Container>
       </div>
     </div>
   );
