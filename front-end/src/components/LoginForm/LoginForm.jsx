@@ -12,18 +12,17 @@ const navigate = useNavigate()
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
       } = useForm()
 
-    async function getUserInfo(data){
+    async function loginFormHandler(data){
         const response = await fetchEmployee(data['id'])
         loginUser(response)
         if(response['employeeRole'] == 'E') navigate('/employee')
         if (response ['employeeRole'] == 'M') navigate('/manager')
     }
     return (
-        <form onSubmit={handleSubmit(getUserInfo)}>
+        <form onSubmit={handleSubmit(loginFormHandler)}>
             <input type="number" placeholder="12345" {...register("id", {required: true})} />
             <input type="submit" value="login"/>
         </form>
