@@ -18,6 +18,7 @@ public class EmployeeController {
     EmployeeService employeeService;
     @GetMapping("/employees")
     ResponseEntity<List<Employee>> getAllEmployees(){
+        System.out.println("hit");
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
     }
     @GetMapping("/employees/{id}")
