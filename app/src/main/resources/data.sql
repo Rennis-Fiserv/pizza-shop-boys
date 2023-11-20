@@ -25,7 +25,7 @@ INSERT into ORDER_DETAIL(order_detail_id, product_id, quantity, discount, sub_to
 INSERT into ORDER_DETAIL(order_detail_id, product_id, quantity, discount, sub_total) VALUES (3, 3, 5, 1.0, 5.5);
 INSERT into ORDER_DETAIL(order_detail_id, product_id, quantity, sub_total) VALUES (3, 4, 5, 5.5);
 
-INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (1, 1001, 1, 1, '2021-01-11 13:23:44', '101 Baker Street');
+-- INSERT into CUSTOMER_ORDER(id, zip, employeeId, customerId, order_placed_date, street_address) VALUES (1, 1001, 1, 1, '2021-01-11 13:23:44', '101 Baker Street');
 
 INSERT into PRICE_HISTORY(id, product_id, price, start_date, end_date) VALUES (1, 1, 50.0, '2023-11-13', '2023-11-14');
 INSERT into PRICE_HISTORY(id, product_id, price, start_date, end_date) VALUES (2, 2, 50.0, '2023-11-16', NULL);

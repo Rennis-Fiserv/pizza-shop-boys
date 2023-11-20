@@ -1,12 +1,9 @@
-
 package com.pizzaShopBoys.app.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.IdClass;
 import org.springframework.data.relational.core.mapping.Table;
-
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.Id;
 
 

@@ -1,4 +1,3 @@
-
 package com.pizzaShopBoys.app.model;
 
 import jakarta.persistence.*;
