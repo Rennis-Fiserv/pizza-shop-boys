@@ -1,8 +1,7 @@
 package com.pizzaShopBoys.app.controller;
 
 import com.pizzaShopBoys.app.model.OrderDetail;
-
-import com.pizzaShopBoys.app.model.OrderDetailPK;
+// import com.pizzaShopBoys.app.model.OrderDetailPK;
 import com.pizzaShopBoys.app.service.OrderDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

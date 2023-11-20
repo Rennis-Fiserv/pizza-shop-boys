@@ -1,7 +1,6 @@
 package com.pizzaShopBoys.app.model;
 
 import java.sql.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -39,6 +38,7 @@ public class PriceHistory {
     }
 
     // GETTERS AND SETTERS
+    
     public int getId() {
         return id;
     }

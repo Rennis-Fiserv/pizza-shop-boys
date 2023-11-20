@@ -10,25 +10,25 @@ public class ZIP {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    private Integer zip;
     private String city;
     private String state;
 
     public ZIP(){
     }
 
-    public ZIP(Integer id, String city, String state){
-        this.id = id;
+    public ZIP(Integer zip, String city, String state){
+        this.zip = zip;
         this.city = city;
         this.state = state;
     }
 
     public Integer getId() {
-        return id;
+        return zip;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer zip) {
+        this.zip = zip;
     }
 
     public String getCity() {
