@@ -10,6 +10,7 @@ const EmployeeManagementPage = () => {
   };
   const [employee, setEmployee] = useState(initialFormState);
   const [employees, setEmployees] = useState([]);
+  //const [employeesR, setEmployeesR] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -24,17 +25,19 @@ const EmployeeManagementPage = () => {
   }, []);
 
   const remove = async (id) => {
+    console.log('Removing employee with ID:', id);
     await fetch(`http://localhost:8080/api/employees/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
     }).then(() => {
       let updatedEmployees = [...employees].filter((i) => i.id !== id);
+      console.log(updatedEmployees)
       setEmployees(updatedEmployees);
     });
-  };
+  }
 
   const add = async (event) => {
     event.preventDefault();
