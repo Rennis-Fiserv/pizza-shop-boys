@@ -3,6 +3,8 @@ import EmployeePage from "../pages/EmployeePage/EmployeePage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import ManagerPage from "../ManagerPage"
 import RootLayout from "../pages/RootLayout"
+import OrderPage from "../pages/OrderPage/OrderPage"
+import Order2 from "../pages/OrderPage/Order2"
 
 const routes = createBrowserRouter(
     createRoutesFromElements(
@@ -11,7 +13,7 @@ const routes = createBrowserRouter(
         <Route index element={<LoginPage/>}></Route>
         
         <Route path="employee" element={<EmployeePage/>}>
-        <Route path="orders" element={<p>orders</p>}></Route>
+        <Route path="orders" element={<Order2/>}></Route>
         </Route>
         
         <Route path="manager" element={<ManagerPage/>}>
