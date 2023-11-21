@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const EmployeeManagementPage = () => {
   const initialFormState = {
-    id: "",
+    id: 0,
     firstName: "",
     lastName: "",
     salary: "",
@@ -10,7 +10,6 @@ const EmployeeManagementPage = () => {
   };
   const [employee, setEmployee] = useState(initialFormState);
   const [employees, setEmployees] = useState([]);
-  //const [employeesR, setEmployeesR] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -21,20 +20,21 @@ const EmployeeManagementPage = () => {
       .then((data) => {
         setEmployees(data);
         setLoading(false);
-      });
+      })
   }, []);
 
-  const remove = async (id) => {
+  const remove = async (event, id) => {
+    event.preventDefault();
     console.log('Removing employee with ID:', id);
     await fetch(`http://localhost:8080/api/employees/${id}`, {
       method: 'DELETE',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       }
-    }).then(() => {
+    }).then((response) => {
+      console.log('Delete response:', response);
       let updatedEmployees = [...employees].filter((i) => i.id !== id);
-      console.log(updatedEmployees)
       setEmployees(updatedEmployees);
     });
   }
@@ -112,7 +112,7 @@ const EmployeeManagementPage = () => {
                 <button
                   size="sm"
                   color="danger"
-                  onClick={() => remove(employee.id)}
+                  onClick={(e) => remove(e, employee.id)}
                 >
                   Delete
                 </button>

@@ -36,6 +36,7 @@ public class EmployeeService {
 
 //    DELETE
     public void deleteEmployeeById(int id){
+        System.out.println("hit2");
         employeeRepository.deleteById(id);
     }
 
