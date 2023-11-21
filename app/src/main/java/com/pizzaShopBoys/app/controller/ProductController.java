@@ -30,9 +30,8 @@ public class ProductController {
 
     @PostMapping("/products")
     ResponseEntity<Product> createProduct(@RequestBody Product product){
-   return productService.createProduct(product)
-           .map(ResponseEntity::ok)
-           .orElseGet(()->ResponseEntity.internalServerError().build());
+        return productService.createProduct(product).map(ResponseEntity::ok)
+                .orElseGet(()->ResponseEntity.notFound().build());
     }
 
     @PutMapping("/products/{id}")
@@ -40,7 +39,6 @@ public class ProductController {
         return productService.updateProduct(product).map(ResponseEntity::ok)
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-
     @DeleteMapping("/products")
     ResponseEntity<Void> deleteAllProducts(){
         productService.deleteAllProducts();

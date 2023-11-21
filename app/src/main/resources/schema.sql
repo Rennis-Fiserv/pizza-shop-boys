@@ -1,7 +1,8 @@
 CREATE TABLE if NOT EXISTS PRODUCT(
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(45),
+    name VARCHAR(45) UNIQUE,
     serving VARCHAR(45),
+    price NUMERIC,
     PRIMARY KEY (id));
 
 CREATE TABLE if NOT EXISTS EMPLOYEE(
@@ -27,13 +28,13 @@ CREATE TABLE if NOT EXISTS zip(
     PRIMARY KEY (zip));
 
 CREATE TABLE if NOT EXISTS order_detail(
-    order_detail_id INT NOT NULL ,
+    order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
     discount NUMERIC DEFAULT 0.0,
     sub_total NUMERIC NOT NULL,
-    PRIMARY KEY (order_detail_id, product_id),
-    FOREIGN KEY (order_detail_id) REFERENCES customer_order(id),
+    PRIMARY KEY (order_id, product_id),
+    FOREIGN KEY (order_id) REFERENCES customer_order(id),
     FOREIGN KEY (product_id) REFERENCES product(id));
 
 CREATE TABLE if NOT EXISTS customer_order(
@@ -48,7 +49,7 @@ CREATE TABLE if NOT EXISTS customer_order(
     FOREIGN KEY (customer_fk) REFERENCES customer(id));
 
 CREATE TABLE if NOT EXISTS price_history(
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     product_id INT NOT NULL,
     price NUMERIC,
     start_date DATE NOT NULL,

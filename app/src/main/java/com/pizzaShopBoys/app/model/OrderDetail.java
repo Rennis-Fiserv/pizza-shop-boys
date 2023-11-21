@@ -1,14 +1,8 @@
 
 package com.pizzaShopBoys.app.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.IdClass;
+import jakarta.persistence.*;
 import org.springframework.data.relational.core.mapping.Table;
-
-import jakarta.persistence.Entity;
-
-import jakarta.persistence.Id;
-
 
 
 @Entity
@@ -18,7 +12,8 @@ public class OrderDetail {
     // FIELDS
     // @id means id will auto generate
     @Id
-    private int orderDetailId;
+    @Column(name = "order_id")
+    private int orderId;
     @Id
     private int productId;
     private int quantity;
@@ -26,20 +21,24 @@ public class OrderDetail {
     @Column(columnDefinition = "double default 0")
     private double discount=0;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="order_id")
+    private CustomerOrder customerOrder;
+
     // CONSTRUCTOR
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderDetailId, int productId, int quantity, double subTotal) {
-        this.orderDetailId = orderDetailId;
+    public OrderDetail(int orderId, int productId, int quantity, double subTotal) {
+        this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
         this.subTotal = subTotal;
         this.discount = 0;
     }
 
-    public OrderDetail(int orderDetailId, int productId, int quantity, double subTotal, double discount) {
-        this.orderDetailId = orderDetailId;
+    public OrderDetail(int orderId, int productId, int quantity, double subTotal, double discount) {
+        this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;
         this.subTotal = subTotal;
@@ -49,10 +48,10 @@ public class OrderDetail {
     @Override
     public String toString() {
         return "OrderDetail{" +
-                "orderDetailId=" + orderDetailId +
+                "orderId=" + orderId +
                 ", productId=" + productId +
                 ", quantity=" + quantity +
-                ", price=" + subTotal +
+                ", subtotal=" + subTotal +
                 ", discount=" + discount +
                 '}';
     }
@@ -77,16 +76,16 @@ public class OrderDetail {
         this.productId = productId;
     }
 
-    public double getPrice() {
+    public double getSubTotal() {
         return subTotal;
     }
 
-    public void setOrderDetailId(int orderDetailId) {
-        this.orderDetailId = orderDetailId;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
-    public int getOrderDetailId() {
-        return orderDetailId;
+    public int getOrderId() {
+        return orderId;
     }
 
     public void setDiscount(double discount) {

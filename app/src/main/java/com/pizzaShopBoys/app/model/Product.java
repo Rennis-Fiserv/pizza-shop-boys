@@ -15,12 +15,14 @@ public class Product {
 
     private String serving;
 
+    private double price;
+
     protected Product(){};
 
-    public Product(String name, String serving) {
+    public Product(String name, String serving, double price) {
         this.name = name;
-
         this.serving = serving;
+        this.price = price;
     }
 
     @Override
@@ -29,6 +31,7 @@ public class Product {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", serving='" + serving + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 
@@ -42,5 +45,9 @@ public class Product {
 
     public String getServing() {
         return serving;
+    }
+
+    public double getPrice(){
+        return this.price;
     }
 }
