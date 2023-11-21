@@ -2,16 +2,14 @@ package com.pizzaShopBoys.app.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-
-
 
 @Entity
 public class CustomerOrder {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private int zip;
     private int employeeFk;
@@ -26,6 +24,15 @@ public class CustomerOrder {
     }
     public CustomerOrder(int id, int zip, int employeeFk, int customerFk, LocalDateTime orderPlacedDate, String streetAddress, List<OrderDetail> orderDetails) {
         this.id = id;
+        this.zip = zip;
+        this.employeeFk = employeeFk;
+        this.customerFk = customerFk;
+        this.orderPlacedDate = orderPlacedDate;
+        this.streetAddress = streetAddress;
+        this.orderDetails = orderDetails;
+    }
+
+    public CustomerOrder(int zip, int employeeFk, int customerFk, LocalDateTime orderPlacedDate, String streetAddress, List<OrderDetail> orderDetails) {
         this.zip = zip;
         this.employeeFk = employeeFk;
         this.customerFk = customerFk;

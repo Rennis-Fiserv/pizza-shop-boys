@@ -1,9 +1,15 @@
 package com.pizzaShopBoys.app.service;
 
+import com.pizzaShopBoys.app.model.EmpMetricDTO;
 import com.pizzaShopBoys.app.model.Employee;
 import com.pizzaShopBoys.app.repository.EmployeeRepository;
+import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +47,10 @@ public class EmployeeService {
 
     public void deleteAllEmployee(){
         employeeRepository.deleteAll();
+    }
+
+    public List<EmpMetricDTO> getEmployeeMetrics(LocalDate startDate, LocalDate endDate){
+        return employeeRepository.findMetrics(startDate, endDate);
     }
 
 }

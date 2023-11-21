@@ -38,7 +38,7 @@ CREATE TABLE if NOT EXISTS order_detail(
     FOREIGN KEY (product_id) REFERENCES product(id));
 
 CREATE TABLE if NOT EXISTS customer_order(
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     zip INT NOT NULL,
     employee_fk INT NOT NULL,
     customer_fk INT NOT NULL,

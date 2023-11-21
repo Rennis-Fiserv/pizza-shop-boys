@@ -1,12 +1,17 @@
 package com.pizzaShopBoys.app.controller;
 
+import com.pizzaShopBoys.app.model.EmpMetricDTO;
 import com.pizzaShopBoys.app.model.Employee;
 import com.pizzaShopBoys.app.service.EmployeeService;
+import jakarta.persistence.Tuple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 // import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 @CrossOrigin
@@ -24,6 +29,11 @@ public class EmployeeController {
     ResponseEntity<Employee> getAllEmployees(@PathVariable int id){
         return employeeService.getEmployeeById(id).map(ResponseEntity::ok)
                 .orElseGet(()->ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/employee-metrics/{startDate}/{endDate}")
+    List<EmpMetricDTO> getEmployeeMetrics(@PathVariable LocalDate startDate, @PathVariable LocalDate endDate){
+        return employeeService.getEmployeeMetrics(startDate, endDate);
     }
 
     @PostMapping("/employees")
