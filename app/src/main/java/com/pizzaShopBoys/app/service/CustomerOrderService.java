@@ -1,6 +1,7 @@
 package com.pizzaShopBoys.app.service;
 
 import com.pizzaShopBoys.app.model.CustomerOrder;
+
 import com.pizzaShopBoys.app.model.OrderDetail;
 import com.pizzaShopBoys.app.repository.CustomerOrderRepository;
 import com.pizzaShopBoys.app.repository.OrderDetailRepository;
@@ -8,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CustomerOrderService {
+
 
     @Autowired
     CustomerOrderRepository customerOrderRepository;
@@ -22,9 +25,11 @@ public class CustomerOrderService {
         return customerOrderRepository.findAll();
     }
 
+
     public Optional<CustomerOrder> getCustomerOrderById(int id){
         return customerOrderRepository.findById(id);
     }
+
 
     @Transactional
     public Optional<CustomerOrder> createCustomerOrder(CustomerOrder customerOrder){
@@ -35,5 +40,6 @@ public class CustomerOrderService {
             orderDetailRepository.save(od.getOrderId(), od.getProductId(), od.getQuantity(), od.getSubTotal(), od.getDiscount());
         }
         return Optional.of(customerOrder);
+
     }
 }

@@ -1,16 +1,15 @@
 package com.pizzaShopBoys.app.controller;
 
 import com.pizzaShopBoys.app.model.Employee;
-
 import com.pizzaShopBoys.app.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+// import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class EmployeeController {
@@ -21,7 +20,11 @@ public class EmployeeController {
     ResponseEntity<List<Employee>> getAllEmployees(){
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
     }
-
+    @GetMapping("/employees/{id}")
+    ResponseEntity<Employee> getAllEmployees(@PathVariable int id){
+        return employeeService.getEmployeeById(id).map(ResponseEntity::ok)
+                .orElseGet(()->ResponseEntity.notFound().build());
+    }
 
     @PostMapping("/employees")
     ResponseEntity<Employee> createEmployee(@RequestBody Employee employee){

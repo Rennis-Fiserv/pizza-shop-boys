@@ -1,6 +1,5 @@
 package com.pizzaShopBoys.app.repository;
 
-
 import com.pizzaShopBoys.app.model.OrderDetailPK;
 import com.pizzaShopBoys.app.model.OrderDetail;
 import jakarta.persistence.criteria.Order;
@@ -8,7 +7,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository

@@ -1,9 +1,7 @@
-
 package com.pizzaShopBoys.app.model;
 
 import jakarta.persistence.*;
 import org.springframework.data.relational.core.mapping.Table;
-
 
 @Entity
 @Table(name = "ORDER_DETAIL")
