@@ -8,7 +8,7 @@ public class Employee {
     // @id means id will auto generate
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
@@ -40,7 +40,6 @@ public class Employee {
     }
     // GETTERS and SETTERS
 
-
     public int getId() {
         return id;
     }
@@ -48,7 +47,6 @@ public class Employee {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -91,5 +89,3 @@ public class Employee {
         this.isActive = isActive;
     }
 }
-
-

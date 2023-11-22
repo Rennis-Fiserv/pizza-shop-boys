@@ -16,37 +16,35 @@ public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
+
     @GetMapping("/employees")
-    ResponseEntity<List<Employee>> getAllEmployees(){
+    ResponseEntity<List<Employee>> getAllEmployees() {
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
     }
+
     @GetMapping("/employees/{id}")
-    ResponseEntity<Employee> getAllEmployees(@PathVariable int id){
+    ResponseEntity<Employee> getAllEmployees(@PathVariable int id) {
         return employeeService.getEmployeeById(id).map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping("/employees")
-    ResponseEntity<Employee> createEmployee(@RequestBody Employee employee){
+    ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         return employeeService.createEmployee(employee)
                 .map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.internalServerError().build());
+                .orElseGet(() -> ResponseEntity.internalServerError().build());
     }
 
-
-
-
     @PutMapping("/employees/{id}")
-    ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
+    ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
 
         return employeeService.updateEmployee(employee).map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/employees/{id}")
-    ResponseEntity<Void> deleteEmployeeById(@PathVariable int id){
+    ResponseEntity<Void> deleteEmployeeById(@PathVariable int id) {
         employeeService.deleteEmployeeById(id);
         return ResponseEntity.noContent().build();
     }
 }
-
