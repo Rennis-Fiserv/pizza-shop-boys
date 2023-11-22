@@ -18,10 +18,10 @@ INSERT into ZIP(zip,city,state) VALUES (34521,'New York','NY');
 INSERT into ZIP(zip,city,state) VALUES (15486,'Berkely Heights','NJ');
 
 INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (1, 55501, 1, 1, '2021-01-11 13:23:44', '101 Baker Street');
-INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (2, 55501, 1, 2, '2021-01-12 13:23:44', '102 Baker Street');
-INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (3, 55502, 4, 1, '2021-01-13 13:23:44', '103 Baker Street');
-INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (4, 55502, 4, 2, '2021-01-13 13:23:44', '104 Baker Street');
-INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (5, 55503, 4, 2, '2021-01-14 13:23:44', '105 Baker Street');
+INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (2, 55501, 1, 2, '2022-01-12 13:23:44', '102 Baker Street');
+INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (3, 55502, 4, 1, '2022-01-13 13:23:44', '103 Baker Street');
+INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (4, 55502, 4, 2, '2022-01-13 13:23:44', '104 Baker Street');
+INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (5, 55503, 4, 2, '2023-01-14 13:23:44', '105 Baker Street');
 INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (6, 55501, 4, 3, '2021-01-14 13:23:44', '106 Baker Street');
 INSERT into CUSTOMER_ORDER(id, zip, employee_fk, customer_fk, order_placed_date, street_address) VALUES (7, 55501, 2, 4, '2021-01-15 13:23:44', '107 Baker Street');
 
