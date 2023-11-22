@@ -1,11 +1,11 @@
-CREATE TABLE if NOT EXISTS PRODUCT(
+CREATE TABLE if NOT EXISTS product(
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(45) UNIQUE,
     serving VARCHAR(45),
     price NUMERIC,
     PRIMARY KEY (id));
 
-CREATE TABLE if NOT EXISTS EMPLOYEE(
+CREATE TABLE if NOT EXISTS employee(
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(45),
     last_name VARCHAR(45),
@@ -14,7 +14,7 @@ CREATE TABLE if NOT EXISTS EMPLOYEE(
     is_active BOOLEAN NOT NULL DEFAULT 0,
     PRIMARY KEY (id));
 
-CREATE TABLE if NOT EXISTS CUSTOMER(
+CREATE TABLE if NOT EXISTS customer(
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(45),
     last_name VARCHAR(45),
@@ -27,7 +27,7 @@ CREATE TABLE if NOT EXISTS zip(
     state VARCHAR(45),
     PRIMARY KEY (zip));
 
-CREATE TABLE if NOT EXISTS order_detail(
+CREATE TABLE if NOT EXISTS order_details(
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
@@ -56,4 +56,11 @@ CREATE TABLE if NOT EXISTS price_history(
     end_date DATE,
     PRIMARY KEY (id),
     FOREIGN KEY (product_id) REFERENCES product(id));
+
+CREATE TABLE if NOT EXISTS product_variant(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(45) UNIQUE,
+    serving VARCHAR(45),
+    price NUMERIC,
+    PRIMARY KEY (id));
 

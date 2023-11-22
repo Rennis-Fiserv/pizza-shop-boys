@@ -16,11 +16,12 @@ public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
+
     @GetMapping("/employees")
-    ResponseEntity<List<Employee>> getAllEmployees(){
+    ResponseEntity<List<Employee>> getAllEmployees() {
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAllEmployees());
     }
-    
+
     @GetMapping("/employees/{id}")
     ResponseEntity<Employee> getAllEmployees(@PathVariable int id) {
         return employeeService.getEmployeeById(id).map(ResponseEntity::ok)

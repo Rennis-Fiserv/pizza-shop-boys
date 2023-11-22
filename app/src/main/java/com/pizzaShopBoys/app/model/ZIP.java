@@ -9,15 +9,15 @@ import jakarta.persistence.Id;
 public class ZIP {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer zip;
     private String city;
     private String state;
 
-    public ZIP(){
+    public ZIP() {
     }
 
-    public ZIP(Integer zip, String city, String state){
+    public ZIP(Integer zip, String city, String state) {
         this.zip = zip;
         this.city = city;
         this.state = state;
@@ -45,5 +45,5 @@ public class ZIP {
 
     public void setState(String state) {
         this.state = state;
-    }  
+    }
 }

@@ -38,7 +38,7 @@ public class PriceHistory {
     }
 
     // GETTERS AND SETTERS
-    
+
     public int getId() {
         return id;
     }

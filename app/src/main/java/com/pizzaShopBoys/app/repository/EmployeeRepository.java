@@ -11,7 +11,7 @@ import java.util.List;
 // import java.util.Optional;
 
 @Repository
-public interface EmployeeRepository extends ListCrudRepository<Employee,Integer> {
+public interface EmployeeRepository extends ListCrudRepository<Employee, Integer> {
     @Query(value = "SELECT * FROM Employee  WHERE is_active=true", nativeQuery = true)
     public List<Employee> findAll();
 
@@ -19,4 +19,3 @@ public interface EmployeeRepository extends ListCrudRepository<Employee,Integer>
     @Query(value = "update Employee e set e.is_active=false where e.id=?1", nativeQuery = true)
     public void deleteById(int id);
 }
-

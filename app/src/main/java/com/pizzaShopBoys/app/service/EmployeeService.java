@@ -11,35 +11,36 @@ import java.util.Optional;
 public class EmployeeService {
     @Autowired
 
-     EmployeeRepository employeeRepository;
+    EmployeeRepository employeeRepository;
 
-//    CREATE
-    public Optional<Employee> createEmployee(Employee employee){
-    return Optional.of(employeeRepository.save(employee));
-}
+    // CREATE
+    public Optional<Employee> createEmployee(Employee employee) {
+        return Optional.of(employeeRepository.save(employee));
+    }
 
-//    READ
-    public List<Employee> getAllEmployees(){
-    return employeeRepository.findAll();
-}
-    public Optional<Employee> getEmployeeById(int id){
+    // READ
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    public Optional<Employee> getEmployeeById(int id) {
         return employeeRepository.findById(id);
     }
 
-//    UPDATE
-    public Optional<Employee> updateEmployee(Employee employee){
-        if(employeeRepository.existsById(employee.getId())){
+    // UPDATE
+    public Optional<Employee> updateEmployee(Employee employee) {
+        if (employeeRepository.existsById(employee.getId())) {
             return Optional.of(employeeRepository.save(employee));
-        }
-        else return Optional.empty();
+        } else
+            return Optional.empty();
     }
 
-//    DELETE
-    public void deleteEmployeeById(int id){
+    // DELETE
+    public void deleteEmployeeById(int id) {
         employeeRepository.deleteById(id);
     }
 
-    public void deleteAllEmployee(){
+    public void deleteAllEmployee() {
         employeeRepository.deleteAll();
     }
 

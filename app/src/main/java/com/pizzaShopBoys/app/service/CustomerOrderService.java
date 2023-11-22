@@ -9,35 +9,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CustomerOrderService {
 
-
     @Autowired
     CustomerOrderRepository customerOrderRepository;
     @Autowired
     OrderDetailRepository orderDetailRepository;
-    public List<CustomerOrder> getAllCustomerOrders(){
+
+    public List<CustomerOrder> getAllCustomerOrders() {
         return customerOrderRepository.findAll();
     }
 
-
-    public Optional<CustomerOrder> getCustomerOrderById(int id){
+    public Optional<CustomerOrder> getCustomerOrderById(int id) {
         return customerOrderRepository.findById(id);
     }
 
-
     @Transactional
-    public Optional<CustomerOrder> createCustomerOrder(CustomerOrder customerOrder){
+    public Optional<CustomerOrder> createCustomerOrder(CustomerOrder customerOrder) {
         var orderDetails = customerOrder.getOrderDetails();
-        customerOrderRepository.save(new CustomerOrder(customerOrder.getId(), customerOrder.getZip(), customerOrder.getEmployeeFk(), customerOrder.getCustomerFk(), customerOrder.getOrderPlacedTime(), customerOrder.getStreetAddress()));
-        for(int i=0; i<orderDetails.size(); ++i){
+        customerOrderRepository.save(new CustomerOrder(customerOrder.getId(), customerOrder.getZip(),
+                customerOrder.getEmployeeFk(), customerOrder.getCustomerFk(), customerOrder.getOrderPlacedTime(),
+                customerOrder.getStreetAddress()));
+        for (int i = 0; i < orderDetails.size(); ++i) {
             OrderDetail od = orderDetails.get(i);
-            orderDetailRepository.save(od.getOrderId(), od.getProductId(), od.getQuantity(), od.getSubTotal(), od.getDiscount());
+            orderDetailRepository.save(od.getOrderId(), od.getProductId(), od.getQuantity(), od.getSubTotal(),
+                    od.getDiscount());
         }
         return Optional.of(customerOrder);
 
