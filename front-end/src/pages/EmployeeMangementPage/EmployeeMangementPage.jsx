@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './EmployeeManagementPage.css';
 
 const EmployeeManagementPage = () => {
   const initialFormState = {
@@ -73,7 +74,7 @@ const EmployeeManagementPage = () => {
         <table>
           <thead>
             <tr>
-              <td style={{ whiteSpace: "nowrap" }} width="20%">
+              <td style={{ whiteSpace: "nowrap" }}>
                 <input
                   type="text"
                   name="firstName"
@@ -81,7 +82,7 @@ const EmployeeManagementPage = () => {
                   onChange={(e) => handleEmployeeFieldChange(e, employee.id)}
                 />
               </td>
-              <td width="20%">
+              <td>
                 <input
                   type="text"
                   name="lastName"
@@ -89,7 +90,7 @@ const EmployeeManagementPage = () => {
                   onChange={(e) => handleEmployeeFieldChange(e, employee.id)}
                 />
               </td>
-              <td width="20%">
+              <td>
                 <input
                   type="text"
                   name="salary"
@@ -97,7 +98,7 @@ const EmployeeManagementPage = () => {
                   onChange={(e) => handleEmployeeFieldChange(e, employee.id)}
                 />
               </td>
-              <td width="20%">
+              <td>
                 <input
                   type="text"
                   name="employeeRole"
@@ -157,10 +158,10 @@ const EmployeeManagementPage = () => {
         <table>
           <thead>
             <tr>
-              <td width="20%">First Name</td>
-              <td width="20%">Last Name</td>
-              <td width="20%">Salary</td>
-              <td width="20%">Role</td>
+              <td width={180}>First Name</td>
+              <td width={180}>Last Name</td>
+              <td width={180}>Salary</td>
+              <td width={180}>Role</td>
             </tr>
           </thead>
         </table>
