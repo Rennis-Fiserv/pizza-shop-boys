@@ -3,7 +3,7 @@ package com.pizzaShopBoys.app.model;
 import java.io.Serializable;
 
 public class OrderDetailPK implements Serializable {
-    private int orderDetailId;
+    private int orderId;
     private int productId;
 
 }
