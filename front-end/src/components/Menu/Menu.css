@@ -1,0 +1,13 @@
+.menu-boxes{
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-boxes h2{
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

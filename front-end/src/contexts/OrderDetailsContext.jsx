@@ -6,16 +6,14 @@ export const OrderDetailsProvidor = ({children}) => {
     const [orderDetails, setOrderDetails] = useState([]);
 
 
-function addToCart(item, quantity){
-    removeFromCart(item)
-
-    console.log(item, quantity)
-    item['quantity'] = quantity
+function addToCart(item){
+    console.log(item)
     setOrderDetails(orderDetails => [...orderDetails, item])
 }
 
-const removeFromCart = (item) => {
-    setOrderDetails(orderDetails.filter(( inCartItem => inCartItem.id != item.id)))
+const removeFromCart = (index) => {
+    const updated =orderDetails.splice(index,1)
+    setOrderDetails(updated)
 }
 
 return(

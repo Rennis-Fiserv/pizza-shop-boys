@@ -1,0 +1,27 @@
+.orders-layout{
+
+    border: solid black 1px;
+    display: grid;
+    grid-template-areas: 
+    "a a b"
+    "a a b"
+    "c c b"
+    "c c b"
+    ;
+    grid-row
+}
+
+.orders-menu{
+    grid-area: a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.cart-sidebar{
+    grid-area: b;
+    border: seagreen solid 1px;
+}
+.contact{
+    grid-area: c;
+    border:  yellow solid 1px;
+}

@@ -1,45 +1,41 @@
-import { useContext, useRef, useState } from "react";
-import Product from "../Product/Product";
-import { OrderDetailsContext } from "../../contexts/OrderDetailsContext";
-import AddToCartButton from "../CartButtons/AddToCartButton";
-import RemoveFromCartButton from "../CartButtons/RemoveFromCartButton";
 import Card from "../Card/Card";
 import Modal from "../Modal/Modal";
-
+import OrderDetailForm from "../Form/OrderDetailForm";
+import './Menu.css'
 export default function Menu(){
     
-    const {orderDetails, addToCart, removeFromCart} = useContext(OrderDetailsContext)
-    let items = [
+    let productsGroupedByCategetory = [
         
             {category: "pizza",
             image:"image",
             products:[
-                {name: 'pepporoni',
-                 size: 'S',
-                 price: 10.00},
-                 {name: 'pepporoni',
-                 size: 'M',
-                 price: 10.00},
-
-                 {name: 'pepporoni',
-                 size: 'L',
-                 price: 10.00}
-            ]},
+                {name: 'pepporni',
+                sizes: ['s','m', 'l'],
+                prices: {'s': 3.00, 'm': 5.00, 'l':10.00}
+                },
+                {name: 'house',
+                sizes: ['s','m', 'l','xl'],
+                prices: {'s': 4.00, 'm': 7.00, 'l':12.00}
+                }                 
+            ]}
+            ,
             {
-            category: "soda",
+            category: "beverage",
             image:"image",
             products:[
                 {name: 'soda',
-                 size: '1 can',
-                 price: 2.00},
+                sizes: ['1 can'],
+                prices: {'1 can': 2.50}}
             ]},
             {
-            category: "breadsticks",
+            category: "sides",
             image:"image",
             products:[
-                {name: 'soda',
-                 size: '1 can',
-                 price: 2.00},
+                {name: 'breadsticks',
+                 sizes: ['8 pc'],
+                 prices: {'8 pc': 2.00
+                }
+            },
             ]}
     ]
     
@@ -48,19 +44,15 @@ export default function Menu(){
     
 return(
     <>
-    { items.map((category) => {
-        return(<>
-            <Card><Modal>
-                    <p>{category.category}</p>
-                    <p>{category.image}</p>
+    { productsGroupedByCategetory.map((category,index) => {
+        return(
+            <Card key={`${category}-${index}`} className="menu-boxes"><Modal key={`modal-${category}`} dialogContent={<OrderDetailForm key={`order-details-${category}`} variants={category.products} category={category.category}/>}>
+                    <h2>{category.category}</h2>
             </Modal></Card>
-            </>
+            
             )}
     )}
     </>
 )
 }
         
-{/* <Product {...item} />
-      <AddToCartButton item={item} />
-      <RemoveFromCartButton item={item}/> */}

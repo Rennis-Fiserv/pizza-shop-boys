@@ -1,6 +1,6 @@
 import { Children, useRef, useState } from "react";
 import './Modal.css'
-export default function Modal({children})
+export default function Modal({children, dialogContent})
 {
     const dialogRef = useRef()
     const [isOpen, setOpenClose] = useState(false);
@@ -19,8 +19,8 @@ export default function Modal({children})
                 {children}
             </div>
             <dialog className="modal-dialog" ref={dialogRef}>
-            <p>Modal DIALOG</p>
-            <button onClick={() => toggleModal()}>X</button>
+            {dialogContent}
+            <button className="dialog-close" onClick={() => toggleModal()}>X</button>
             </dialog>
             </>
     )

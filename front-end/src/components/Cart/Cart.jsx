@@ -6,10 +6,10 @@ export default function Cart(){
     const {orderDetails, addToCart, removeFromCart} = useContext(OrderDetailsContext)
     return(
         <>
-        {orderDetails.map((item)=>{return(
-    <>
-        <Product {...item}/> <p>{item.quantity}</p>
-    </>  
+        {orderDetails.map((item,index)=>{return(
+ 
+        <Product key={index} {...item}/> 
+    
         )})}
 
         </>
