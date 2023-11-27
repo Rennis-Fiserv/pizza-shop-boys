@@ -1,0 +1,16 @@
+.logbttn {
+    border-color: #6b4539;
+    background-color: rgba(0, 255, 0, 0.534);
+    color: black;
+    border-radius: 5px;
+    font-size: xx-large;
+}
+ 
+ 
+.space{
+    padding: 5px;
+}
+.logbttn:hover {
+    background-color: #b67764;
+}
+ 
