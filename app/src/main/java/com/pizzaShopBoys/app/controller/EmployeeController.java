@@ -39,7 +39,6 @@ public class EmployeeController {
 
     ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
 
-    ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
 
 
         return employeeService.updateEmployee(employee).map(ResponseEntity::ok)
@@ -50,8 +49,6 @@ public class EmployeeController {
 
     ResponseEntity<Void> deleteEmployeeById(@PathVariable int id){
         System.out.println("hit");
-
-    ResponseEntity<Void> deleteEmployeeById(@PathVariable int id) {
 
         employeeService.deleteEmployeeById(id);
         return ResponseEntity.noContent().build();
