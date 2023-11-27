@@ -4,7 +4,7 @@ import LoginPage from "../pages/LoginPage/LoginPage"
 import ManagerPage from "../ManagerPage"
 import RootLayout from "../pages/RootLayout"
 import EmployeeManagementPage from "../pages/EmployeeMangementPage/EmployeeMangementPage"
-import PizzaShopStatisticsPage from "../pages/PizzaShopStatisticsPage/PizzaShopStatisticsPage"
+import PizzaShopStatsPage from "../pages/PizzaShopStatsPage/PizzaShopStatsPage"
 
 const routes = createBrowserRouter(
     createRoutesFromElements(
@@ -20,8 +20,8 @@ const routes = createBrowserRouter(
 
             <Route path="orders" element={<p>orders</p>}></Route>
             <Route path="employee-management" element={<EmployeeManagementPage/>}></Route>
-            <Route path="shop-metrics" element={<PizzaShopStatisticsPage/>}></Route>
-        
+            <Route path="shop-metrics" element={<PizzaShopStatsPage/>}></Route>
+            
         
         </Route> 
         </Route>

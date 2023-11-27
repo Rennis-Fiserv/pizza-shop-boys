@@ -39,6 +39,19 @@ public class CustomerOrderController {
     ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrder customerOrder) {
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder(customerOrder));
     }
+
+    @GetMapping("/customer-orders/byEmployeeByDate")
+    public ResponseEntity<List<Object[]>> getOrdersByEmployeeByDate() {
+        List<Object[]> result = customerOrderService.getOrdersByEmployeeByDate();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+    @GetMapping("/customer-orders/byZipByDate")
+    public ResponseEntity<List<Object[]>> getOrdersByZipByDate() {
+        List<Object[]> result = customerOrderService.getOrdersByZipByDate();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+
 //
 //    @PutMapping("/customers/{id}")
 //    ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
