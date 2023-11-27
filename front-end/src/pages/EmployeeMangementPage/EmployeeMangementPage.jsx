@@ -158,10 +158,10 @@ const EmployeeManagementPage = () => {
         <table>
           <thead>
             <tr>
-              <td width={180}>First Name</td>
-              <td width={180}>Last Name</td>
-              <td width={180}>Salary</td>
-              <td width={180}>Role</td>
+              <td width={200}>First Name</td>
+              <td width={200}>Last Name</td>
+              <td width={200}>Salary</td>
+              <td width={200}>Role</td>
             </tr>
           </thead>
         </table>
