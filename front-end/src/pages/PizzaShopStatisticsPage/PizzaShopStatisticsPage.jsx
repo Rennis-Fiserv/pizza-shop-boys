@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import './PizzaShopStatisticsPage.css';
-import { LineChart } from '@mui/x-charts/LineChart';
 import { PieChart } from '@mui/x-charts/PieChart';
 
 const PizzaShopStatisticsPage = () => {
@@ -22,14 +21,15 @@ const PizzaShopStatisticsPage = () => {
   }, []);
 
   const uniqueZipCodes = [...new Set(orders.map(order => order.zip))];
-  const uniqueOrderPlacedDates = [...new Set(orders.map(order => order.orderPlacedTime[0]))];
+  const uniqueOrderPlacedDates = [...new Set(orders.map(order => order.orderPlacedTime[2]))];
+  const uniqueEmployeeFKs = [...new Set(orders.map(order => order.employeeFk))];
 
-  const chartData = uniqueZipCodes.map(zipCode => {
+  const zipChartData = uniqueZipCodes.map(zipCode => {
     return {
       zipCode: zipCode,
       data: uniqueOrderPlacedDates.map(date => {
         const ordersForDateAndZip = orders.filter(
-          order => order.zip === zipCode && order.orderPlacedTime[0] === date
+          order => order.zip === zipCode && order.orderPlacedTime[2] === date
         );
         return {
           date: date,
@@ -39,104 +39,119 @@ const PizzaShopStatisticsPage = () => {
     };
   });
 
-  // Create data for the PieChart
-  const pieChartData = uniqueZipCodes.map(zipCode => {
+  const employeeChartData = uniqueEmployeeFKs.map(employeeFk => {
+    return {
+      employeeFK: employeeFk,
+      data: uniqueOrderPlacedDates.map(date => {
+        const ordersForDateAndEmployee = orders.filter(
+          order => order.employeeFk === employeeFk && order.orderPlacedTime[2] === date
+        );
+        return {
+          date: date,
+          value: ordersForDateAndEmployee.length,
+        };
+      }),
+    };
+  });
+
+  const zipPieChartData = uniqueZipCodes.map(zipCode => {
     const totalOrdersForZip = uniqueOrderPlacedDates.reduce((total, date) => {
       const ordersForDateAndZip = orders.filter(
-        order => order.zip === zipCode && order.orderPlacedTime[0] === date
+        order => order.zip === zipCode && order.orderPlacedTime[2] === date
       );
       return total + ordersForDateAndZip.length;
     }, 0);
 
     return {
+      label: `Zip ${zipCode}`,
       zipCode: zipCode,
       value: totalOrdersForZip,
     };
   });
 
-  const keyToLabel = uniqueZipCodes.reduce((acc, zipCode) => {
-    acc[zipCode] = `Orders from ${zipCode}`;
-    return acc;
-  }, {});
+  const employeePieChartData = uniqueEmployeeFKs.map(employeeFk => {
+    const totalOrdersForEmployee = uniqueOrderPlacedDates.reduce((total, date) => {
+      const ordersForDateAndEmployee = orders.filter(
+        order => order.employeeFk === employeeFk && order.orderPlacedTime[2] === date
+      );
+      return total + ordersForDateAndEmployee.length;
+    }, 0);
+
+    return {
+      label: `Employee ${employeeFk}`,
+      employeeFK: employeeFk,
+      value: totalOrdersForEmployee,
+    };
+  });
 
   const colors = {
     55501: 'lightgreen',
     55502: 'yellow',
     55503: 'lightblue',
-  };
-
-  const stackStrategy = {
-    stack: 'total',
-    area: true,
-    stackOffset: 'none', // To stack 0 on top of others
+    // Add colors for employeeFKs if needed
   };
 
   const customize = {
     height: 300,
-    legend: { hidden: true },
     margin: { top: 5 },
-    stackingOrder: 'descending',
   };
 
   return (
     <>
       <h1>Pizza Shop Statistics Page 🙈🐷</h1>
-      <LineChart
-        xAxis={[
-          {
-            dataKey: 'date',
-            label:'year',
-            valueFormatter: (v) => v.toString(),
-          },
-        ]}
-        series={uniqueZipCodes.map(zipCode => ({
-          dataKey: zipCode.toString(), // Convert the zip code to a string
-          label: keyToLabel[zipCode],
-          color: colors[zipCode],
-          showMark: false,
-          ...stackStrategy,
-        }))}
-        dataset={chartData.reduce((acc, item) => {
-          item.data.forEach(subItem => {
-            const existingItem = acc.find(entry => entry.date === subItem.date);
-            if (existingItem) {
-              existingItem[item.zipCode] = subItem.value;
-            } else {
-              acc.push({
-                date: subItem.date,
-                [item.zipCode]: subItem.value,
-              });
-            }
-          });
-          return acc;
-        }, [])}
-        {...customize}
-      />
 
-      {/* PieChart */}
-      <PieChart
-        series={[
-          {
-            data: pieChartData,
-            label: 'zipCode',
-            color: Object.values(colors),
-          },
-        ]}
-        {...customize}
-      />
-
-      <div>{chartData.map(item => (
-          <div key={item.zipCode}>
-            <h2>Orders for {item.zipCode}:</h2>
-            <ul>
+      <div className="charts-container">
+        {/* PieChart for Orders by ZipCode */}
+        <div className="chart-section">
+          <h2>Orders by Zip Code</h2>
+          <PieChart
+            series={[
+              {
+                data: zipPieChartData,
+                colors: Object.values(colors),
+              },
+            ]}
+            {...customize}
+          />
+          {zipChartData.map(item => (
+            <div key={item.zipCode}>
+              <h3>Orders for Zip {item.zipCode}:</h3>
+              <ul>
                 {item.data.map(subItem => (
                   <li key={subItem.date}>
-                    {subItem.date}: {subItem.value} orders ({Array.isArray(subItem.orderNumbers) ? subItem.orderNumbers.join(', ') : ''})
+                    {subItem.date + 'th'}: {subItem.value} orders
                   </li>
                 ))}
-            </ul>
-          </div>
-        ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* PieChart for Orders by Employee */}
+        <div className="chart-section">
+          <h2>Orders by Employee</h2>
+          <PieChart
+            series={[
+              {
+                data: employeePieChartData,
+                colors: Object.values(colors),
+              },
+            ]}
+            {...customize}
+          />
+          {employeeChartData.map(item => (
+            <div key={item.employeeFK}>
+              <h3>Orders for Employee {item.employeeFK}:</h3>
+              <ul>
+                {item.data.map(subItem => (
+                  <li key={subItem.date}>
+                    {subItem.date + 'th'}: {subItem.value} orders
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
