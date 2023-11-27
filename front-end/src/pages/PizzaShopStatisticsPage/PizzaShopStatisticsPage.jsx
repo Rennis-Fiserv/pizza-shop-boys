@@ -20,10 +20,12 @@ const PizzaShopStatisticsPage = () => {
     fetchData();
   }, []);
 
+  // Extract unique zip codes, order placed dates, and employeeFKs from orders
   const uniqueZipCodes = [...new Set(orders.map(order => order.zip))];
   const uniqueOrderPlacedDates = [...new Set(orders.map(order => order.orderPlacedTime[2]))];
   const uniqueEmployeeFKs = [...new Set(orders.map(order => order.employeeFk))];
 
+  // Prepare data for PieChart and list by Zip Code
   const zipChartData = uniqueZipCodes.map(zipCode => {
     return {
       zipCode: zipCode,
@@ -39,6 +41,7 @@ const PizzaShopStatisticsPage = () => {
     };
   });
 
+  // Prepare data for PieChart and list by EmployeeFK
   const employeeChartData = uniqueEmployeeFKs.map(employeeFk => {
     return {
       employeeFK: employeeFk,
@@ -54,6 +57,7 @@ const PizzaShopStatisticsPage = () => {
     };
   });
 
+  // Prepare data for PieChart labels and values by Zip Code
   const zipPieChartData = uniqueZipCodes.map(zipCode => {
     const totalOrdersForZip = uniqueOrderPlacedDates.reduce((total, date) => {
       const ordersForDateAndZip = orders.filter(
@@ -69,6 +73,7 @@ const PizzaShopStatisticsPage = () => {
     };
   });
 
+  // Prepare data for PieChart labels and values by EmployeeFK
   const employeePieChartData = uniqueEmployeeFKs.map(employeeFk => {
     const totalOrdersForEmployee = uniqueOrderPlacedDates.reduce((total, date) => {
       const ordersForDateAndEmployee = orders.filter(
@@ -84,6 +89,7 @@ const PizzaShopStatisticsPage = () => {
     };
   });
 
+  // Define colors for PieChart segments based on Zip Codes
   const colors = {
     55501: 'lightgreen',
     55502: 'yellow',
@@ -91,6 +97,7 @@ const PizzaShopStatisticsPage = () => {
     // Add colors for employeeFKs if needed
   };
 
+  // Customize PieChart appearance
   const customize = {
     height: 300,
     margin: { top: 5 },
