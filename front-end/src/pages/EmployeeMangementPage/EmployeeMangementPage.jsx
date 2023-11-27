@@ -137,7 +137,7 @@ const EmployeeManagementPage = () => {
                 color="salmon"
                 sx={{
                     ':hover': {
-                      bgcolor: 'lightpink', // theme.palette.primary.main
+                      bgcolor: 'pink', // theme.palette.primary.main
                       color: 'white',
                     },
                 }}>
@@ -149,7 +149,7 @@ const EmployeeManagementPage = () => {
                   color="salmon"
                   sx={{
                     ':hover': {
-                      bgcolor: 'salmon', // theme.palette.primary.main
+                      bgcolor: 'pink', // theme.palette.primary.main
                       color: 'white',
                     },
                   }}
