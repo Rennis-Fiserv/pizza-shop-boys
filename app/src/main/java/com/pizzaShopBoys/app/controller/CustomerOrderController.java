@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class CustomerOrderController {
@@ -40,6 +40,34 @@ public class CustomerOrderController {
     ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrder customerOrder) {
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder(customerOrder));
     }
+
+
+    @GetMapping("/customer-orders/byEmployeeByDate")
+    public ResponseEntity<List<Object[]>> getOrdersByEmployeeByDate() {
+        List<Object[]> result = customerOrderService.getOrdersByEmployeeByDate();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+    @GetMapping("/customer-orders/byZipByDate")
+    public ResponseEntity<List<Object[]>> getOrdersByZipByDate() {
+        List<Object[]> result = customerOrderService.getOrdersByZipByDate();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+
+//
+//    @PutMapping("/customers/{id}")
+//    ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
+//
+//        return customerService.updateCustomer(customer).map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+//    }
+//
+//    @DeleteMapping("/customers/{id}")
+//    ResponseEntity<Void> deleteCustomerById(@PathVariable int id) {
+//        customerService.deleteCustomerById(id);
+//        return ResponseEntity.noContent().build();
+//    }
+
     //
     // @PutMapping("/customers/{id}")
     // ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
@@ -53,4 +81,5 @@ public class CustomerOrderController {
     // customerService.deleteCustomerById(id);
     // return ResponseEntity.noContent().build();
     // }
+
 }
