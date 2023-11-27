@@ -1,5 +1,6 @@
 package com.pizzaShopBoys.app.controller;
 
+import com.pizzaShopBoys.app.dto.CustomerOrderDTO;
 import com.pizzaShopBoys.app.model.CustomerOrder;
 import com.pizzaShopBoys.app.repository.CustomerOrderRepository;
 import com.pizzaShopBoys.app.repository.OrderDetailRepository;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class CustomerOrderController {
@@ -39,6 +40,10 @@ public class CustomerOrderController {
     @PostMapping("/customer-orders")
     ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrder customerOrder) {
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder(customerOrder));
+    }
+    @PostMapping("/customer-orders-raw")
+    ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrderDTO customerOrderDTO) {
+        return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder(customerOrderDTO));
     }
     //
     // @PutMapping("/customers/{id}")

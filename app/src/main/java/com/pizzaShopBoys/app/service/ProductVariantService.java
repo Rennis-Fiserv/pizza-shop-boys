@@ -28,12 +28,12 @@ public class ProductVariantService {
     }
 
     // UPDATE
-    public Optional<ProductVariant> updateProductVariant(ProductVariant var) {
-        if (productVariantRepository.existsById(var.getId())) {
-            return Optional.of(productVariantRepository.save(var));
-        } else
-            return Optional.empty();
-    }
+//    public Optional<ProductVariant> updateProductVariant(ProductVariant var) {
+//        if (productVariantRepository.existsById(var.getId())) {
+//            return Optional.of(productVariantRepository.save(var));
+//        } else
+//            return Optional.empty();
+//    }
 
     // DELETE
     public void deleteProductVariantById(int id) {

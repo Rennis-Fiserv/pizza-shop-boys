@@ -10,6 +10,7 @@ import java.util.List;
 public class CustomerOrder {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int zip;
     private int employeeFk;
@@ -34,9 +35,9 @@ public class CustomerOrder {
         this.orderDetails = orderDetails;
     }
 
-    public CustomerOrder(int id, int zip, int employeeFk, int customerFk, LocalDateTime orderPlacedDate,
+
+    public CustomerOrder(int zip, int employeeFk, int customerFk, LocalDateTime orderPlacedDate,
             String streetAddress) {
-        this.id = id;
         this.zip = zip;
         this.employeeFk = employeeFk;
         this.customerFk = customerFk;

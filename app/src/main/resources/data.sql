@@ -1,6 +1,17 @@
-INSERT into PRODUCT(name, serving, price) VALUES ('pizza - l','16 in', 50);
-INSERT into PRODUCT(name, serving, price) VALUES ('pizza - m', '12 in', 100);
-INSERT into PRODUCT(name, serving, price) VALUES ('pizza - s','8 in', 150);
+INSERT into PRODUCT(name, category) VALUES ('peporoni','pizza');
+INSERT into PRODUCT(name, category) VALUES ('house special', 'pizza');
+INSERT into PRODUCT(name, category) VALUES ('breadsticks','sides');
+INSERT into PRODUCT(name, category) VALUES ('soda', 'beverages');
+
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (1,'s',7.35);
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (1,'m', 9.35);
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (1,'l',14.00);
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (2,'s',8.50);
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (2,'m',10.50);
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (2,'l', 16.00);
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (3, '8 pieces', 2.50);
+INSERT into PRODUCT_VARIANT(product_id, serving, price) VALUES (4, '1 can', 3.25);
+
 
 INSERT into EMPLOYEE(first_name,last_name,salary,employee_role, is_active) VALUES('dhruv','thota',50000,'E', 1);
 INSERT into EMPLOYEE(first_name,last_name,salary,employee_role, is_active) VALUES('will','cooper',50000,'E', 1);
@@ -39,7 +50,3 @@ INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (1, 50
 INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (2, 50.0, '2023-11-16', NULL);
 INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (3, 50.0, '2023-11-16', NULL);
 INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (1, 50.0, '2023-11-15', NULL);
-
-INSERT into PRODUCT(name, serving, price) VALUES ('pizza - l','16 in', 50);
-INSERT into PRODUCT(name, serving, price) VALUES ('pizza - m', '12 in', 100);
-INSERT into PRODUCT(name, serving, price) VALUES ('pizza - s','8 in', 150);
