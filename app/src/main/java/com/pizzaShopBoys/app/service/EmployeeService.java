@@ -35,8 +35,14 @@ public class EmployeeService {
             return Optional.empty();
     }
 
+
+//    DELETE
+    public void deleteEmployeeById(int id){
+        System.out.println("hit2");
+
     // DELETE
     public void deleteEmployeeById(int id) {
+
         employeeRepository.deleteById(id);
     }
 

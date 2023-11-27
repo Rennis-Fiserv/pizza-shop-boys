@@ -3,7 +3,12 @@ import EmployeePage from "../pages/EmployeePage/EmployeePage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import ManagerPage from "../ManagerPage"
 import RootLayout from "../pages/RootLayout"
+
+import EmployeeManagementPage from "../pages/EmployeeMangementPage/EmployeeMangementPage"
+import PizzaShopStatsPage from "../pages/PizzaShopStatsPage/PizzaShopStatsPage"
+
 import OrderPage from "../pages/OrderPage/OrderPage"
+
 
 
 const routes = createBrowserRouter(
@@ -18,10 +23,17 @@ const routes = createBrowserRouter(
         
         <Route path="manager" element={<ManagerPage/>}>
 
+
+            <Route path="orders" element={<p>orders</p>}></Route>
+            <Route path="employee-management" element={<EmployeeManagementPage/>}></Route>
+            <Route path="shop-metrics" element={<PizzaShopStatsPage/>}></Route>
+            
+
             <Route path="orders" element={<OrderPage/>}></Route>
             <Route path="employee-management" element={<p>employee-management</p>}></Route>
             <Route path="shop-metrics" element={<p>employee-metrics</p>}></Route>
         
+
         
         </Route> 
         </Route>
@@ -30,8 +42,8 @@ const routes = createBrowserRouter(
 
 export default function Routes (){
     return(
-       <>
-       <RouterProvider router={routes}/>
-       </>
+        <>
+        <RouterProvider router={routes}/>
+        </>
     )
 }

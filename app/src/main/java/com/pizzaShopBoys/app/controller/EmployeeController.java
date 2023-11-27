@@ -36,14 +36,23 @@ public class EmployeeController {
     }
 
     @PutMapping("/employees/{id}")
+
+    ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
+
     ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
+
 
         return employeeService.updateEmployee(employee).map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/employees/{id}")
+
+    ResponseEntity<Void> deleteEmployeeById(@PathVariable int id){
+        System.out.println("hit");
+
     ResponseEntity<Void> deleteEmployeeById(@PathVariable int id) {
+
         employeeService.deleteEmployeeById(id);
         return ResponseEntity.noContent().build();
     }

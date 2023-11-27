@@ -42,4 +42,12 @@ public class CustomerOrderService {
         return Optional.of(customerOrder);
 
     }
+    
+    public List<Object[]> getOrdersByEmployeeByDate() {
+        return customerOrderRepository.getOrdersByEmployeeByDate();
+    }
+ 
+    public List<Object[]> getOrdersByZipByDate() {
+        return customerOrderRepository.getOrdersByZipByDate();
+    }
 }
