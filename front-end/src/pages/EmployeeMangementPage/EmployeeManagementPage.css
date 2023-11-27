@@ -1,7 +1,10 @@
-
 th, td {
-    border: 1px solid salmon;
+    border: 1px solid gray;
     padding: 8px;
     text-align: justify;
-    background: pink;
+    background: white;
+}
+
+*{
+    box-sizing: border-box
 }
