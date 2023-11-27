@@ -1,10 +1,15 @@
-export default function Product({name, size, price , quantity}){
+import { useContext } from 'react'
+import './Product.css'
+import { OrderDetailsContext } from '../../contexts/OrderDetailsContext'
+export default function Product({name, size, price , quantity,index}){
+    const {removeFromCart} = useContext(OrderDetailsContext)
     return(
         <>
-        <div>
-            <p>Name: {name}-{size}</p>
-            <p>Price: ${price}</p>
-            <p>quantity {quantity}</p>
+        <div className="cart-item">
+            <p className='cart-item-header'>{name} ({size})</p>
+            <p className='cart-item-price'>${price} </p>
+            <p className='cart-item-quanity'>{quantity}</p>
+            <button className='cart-item-remove' onClick={()=> removeFromCart(index)}>remove</button>
         </div>
         </>
     )
