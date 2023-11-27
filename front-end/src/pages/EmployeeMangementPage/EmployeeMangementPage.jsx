@@ -253,6 +253,7 @@ const EmployeeManagementPage = () => {
                   size="sm" 
                   variant="outlined"
                   color="salmon"
+                  type="submit"
                   sx={{
                     ':hover': {
                       bgcolor: 'pink', // theme.palette.primary.main

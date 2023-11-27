@@ -24,7 +24,7 @@ const routes = createBrowserRouter(
         <Route path="manager" element={<ManagerPage/>}>
 
 
-            <Route path="orders" element={<p>orders</p>}></Route>
+            <Route path="orders" element={<OrderPage/>}></Route>
             <Route path="employee-management" element={<EmployeeManagementPage/>}></Route>
             <Route path="shop-metrics" element={<PizzaShopStatsPage/>}></Route>
             
