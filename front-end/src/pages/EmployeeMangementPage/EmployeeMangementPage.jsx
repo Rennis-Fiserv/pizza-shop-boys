@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import './EmployeeManagementPage.css';
+import Button from '@mui/material/Button';
+
 
 const EmployeeManagementPage = () => {
   const initialFormState = {
@@ -107,16 +109,16 @@ const EmployeeManagementPage = () => {
                 />
               </td>
               <td>
-                <button size="sm" color="primary" type="submit">
+                <Button size="sm" type="submit" variant="outlined">
                   Save
-                </button>
-                <button
+                </Button>
+                <Button
                   size="sm"
-                  color="danger"
+                  variant="outlined"
                   onClick={(e) => remove(e, employee.id)}
                 >
                   Delete
-                </button>
+                </Button>
               </td>
             </tr>
           </thead>
@@ -208,9 +210,9 @@ const EmployeeManagementPage = () => {
                   />
                 </td>
                 <td>
-                  <button size="sm" color="success" type="submit">
+                  <Button size="sm" variant="outlined">
                     Add
-                  </button>
+                  </Button>
                 </td>
               </tr>
             </thead>
