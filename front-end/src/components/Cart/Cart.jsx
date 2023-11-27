@@ -6,11 +6,14 @@ export default function Cart(){
     const {orderDetails, addToCart, removeFromCart} = useContext(OrderDetailsContext)
     return(
         <>
-        {orderDetails.map((item,index)=>{return(
+        <h3>Order Details</h3>
+        {orderDetails.length > 0 && orderDetails.map((item,index)=>{return(
  
-        <Product key={index} {...item}/> 
+        <Product key={index} index={index} {...item}/> 
     
         )})}
+
+        {orderDetails.length === 0 && <p>No items in order</p>}
 
         </>
     )

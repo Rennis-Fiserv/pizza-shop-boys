@@ -7,13 +7,12 @@ export const OrderDetailsProvidor = ({children}) => {
 
 
 function addToCart(item){
-    console.log(item)
+   
     setOrderDetails(orderDetails => [...orderDetails, item])
 }
 
 const removeFromCart = (index) => {
-    const updated =orderDetails.splice(index,1)
-    setOrderDetails(updated)
+    setOrderDetails(orderDetails => orderDetails.filter((order, i) => (i != index)))
 }
 
 return(
