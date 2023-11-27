@@ -48,40 +48,13 @@ public class CustomerOrderService {
         return Optional.of(customerOrder);
     }
 
-    @Transactional
-    public Optional<CustomerOrder> createCustomerOrder(CustomerOrderDTO customerOrderDTO) {
-
-//        Create Customer
-       Customer newCustomer = customerRepository.save(new Customer(
-               customerOrderDTO.getFirstName(),
-               customerOrderDTO.getLastName(),
-               customerOrderDTO.getPhone())
-       );
-
-//       Create Order
-       CustomerOrder customerOrder = new CustomerOrder(
-               customerOrderDTO.getZip(),
-               customerOrderDTO.getEmployee(), newCustomer.getId(), customerOrderDTO.getOrderPlacedDate(),
-               customerOrderDTO.getStreetAddress());
-
-        CustomerOrder savedOrder = customerOrderRepository.save(customerOrder);
-
-        for (int i = 0; i < customerOrderDTO.getOrderDetails().size(); ++i) {
-
-            OrderDetail od = new OrderDetail(savedOrder.getId(), customerOrderDTO.getOrderDetails().get(i));
-            orderDetailRepository.save(od);
-        }
-    return Optional.of(savedOrder);
-    }}
-//        var orderDetails = customerOrder.getOrderDetails();
-//        customerOrderRepository.save(new CustomerOrder(customerOrder.getId(), customerOrder.getZip(),
-//                customerOrder.getEmployeeFk(), customerOrder.getCustomerFk(), customerOrder.getOrderPlacedTime(),
-//                customerOrder.getStreetAddress()));
-//        for (int i = 0; i < orderDetails.size(); ++i) {
-//            OrderDetail od = orderDetails.get(i);
-//            orderDetailRepository.save(od.getOrderId(), od.getProductId(), od.getQuantity(), od.getSubTotal(),
-//                    od.getDiscount());
-//        }
-//        return Optional.of(customerOrder);
-//    }
+    
+    public List<Object[]> getOrdersByEmployeeByDate() {
+        return customerOrderRepository.getOrdersByEmployeeByDate();
+    }
+ 
+    public List<Object[]> getOrdersByZipByDate() {
+        return customerOrderRepository.getOrdersByZipByDate();
+    }
+}
 
