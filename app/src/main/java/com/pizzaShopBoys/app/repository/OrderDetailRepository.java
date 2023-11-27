@@ -2,7 +2,7 @@ package com.pizzaShopBoys.app.repository;
 
 import com.pizzaShopBoys.app.model.OrderDetailPK;
 import com.pizzaShopBoys.app.model.OrderDetail;
-import jakarta.persistence.criteria.Order;
+// import jakarta.persistence.criteria.Order;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.ListCrudRepository;
@@ -18,4 +18,3 @@ public interface OrderDetailRepository extends ListCrudRepository<OrderDetail, O
     @Query(value = "INSERT INTO Order_Detail(order_id, product_id, quantity, sub_total, discount) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
     public void save(int orderId, int productId, int quantity, double subTotal, double discount);
 }
-

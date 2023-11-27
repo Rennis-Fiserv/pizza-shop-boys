@@ -32,13 +32,15 @@ public class CustomerOrderController {
     }
 
     @GetMapping("/customer-orders/{id}")
-    ResponseEntity<Optional<CustomerOrder>> getCustomerOrderById(@PathVariable int id){
+    ResponseEntity<Optional<CustomerOrder>> getCustomerOrderById(@PathVariable int id) {
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.getCustomerOrderById(id));
     }
+
     @PostMapping("/customer-orders")
     ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrder customerOrder) {
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder(customerOrder));
     }
+
 
     @GetMapping("/customer-orders/byEmployeeByDate")
     public ResponseEntity<List<Object[]>> getOrdersByEmployeeByDate() {
@@ -65,4 +67,19 @@ public class CustomerOrderController {
 //        customerService.deleteCustomerById(id);
 //        return ResponseEntity.noContent().build();
 //    }
+
+    //
+    // @PutMapping("/customers/{id}")
+    // ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
+    //
+    // return customerService.updateCustomer(customer).map(ResponseEntity::ok)
+    // .orElseGet(() -> ResponseEntity.notFound().build());
+    // }
+    //
+    // @DeleteMapping("/customers/{id}")
+    // ResponseEntity<Void> deleteCustomerById(@PathVariable int id) {
+    // customerService.deleteCustomerById(id);
+    // return ResponseEntity.noContent().build();
+    // }
+
 }

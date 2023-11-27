@@ -11,35 +11,36 @@ import java.util.Optional;
 public class CustomerService {
     @Autowired
 
-     CustomerRepository customerRepository;
+    CustomerRepository customerRepository;
 
-//    CREATE
-    public Optional<Customer> createCustomer(Customer customer){
-    return Optional.of(customerRepository.save(customer));
-}
+    // CREATE
+    public Optional<Customer> createCustomer(Customer customer) {
+        return Optional.of(customerRepository.save(customer));
+    }
 
-//    READ
-    public List<Customer> getAllCustomers(){
-    return customerRepository.findAll();
-}
-    public Optional<Customer> getCustomerById(int id){
+    // READ
+    public List<Customer> getAllCustomers() {
+        return customerRepository.findAll();
+    }
+
+    public Optional<Customer> getCustomerById(int id) {
         return customerRepository.findById(id);
     }
 
-//    UPDATE
-    public Optional<Customer> updateCustomer(Customer customer){
-        if(customerRepository.existsById(customer.getId())){
+    // UPDATE
+    public Optional<Customer> updateCustomer(Customer customer) {
+        if (customerRepository.existsById(customer.getId())) {
             return Optional.of(customerRepository.save(customer));
-        }
-        else return Optional.empty();
+        } else
+            return Optional.empty();
     }
 
-//    DELETE
-    public void deleteCustomerById(int id){
+    // DELETE
+    public void deleteCustomerById(int id) {
         customerRepository.deleteById(id);
     }
 
-    public void deleteAllCustomer(){
+    public void deleteAllCustomer() {
         customerRepository.deleteAll();
     }
 

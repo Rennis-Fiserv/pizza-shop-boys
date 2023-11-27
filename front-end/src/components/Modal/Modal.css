@@ -1,0 +1,15 @@
+.modal-click-region{
+    width: 100%;
+    height: 100%;
+}
+
+.modal-dialog{
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+.dialog-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

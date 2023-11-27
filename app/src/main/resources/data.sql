@@ -39,3 +39,7 @@ INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (1, 50
 INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (2, 50.0, '2023-11-16', NULL);
 INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (3, 50.0, '2023-11-16', NULL);
 INSERT into PRICE_HISTORY(product_id, price, start_date, end_date) VALUES (1, 50.0, '2023-11-15', NULL);
+
+INSERT into PRODUCT(name, serving, price) VALUES ('pizza - l','16 in', 50);
+INSERT into PRODUCT(name, serving, price) VALUES ('pizza - m', '12 in', 100);
+INSERT into PRODUCT(name, serving, price) VALUES ('pizza - s','8 in', 150);

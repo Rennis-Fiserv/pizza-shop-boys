@@ -6,49 +6,47 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Product {
-
+public class ProductVariant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-
     private String serving;
-
     private double price;
 
-    protected Product() {
-    };
+    // CONSTRUCTORS
 
-    public Product(String name, String serving, double price) {
-        this.name = name;
+    public ProductVariant() {
+    }
+
+    public ProductVariant(Integer id, String serving, double price) {
+        this.id = id;
         this.serving = serving;
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", serving='" + serving + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
+    // GETTERS AND SETTERS
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getServing() {
         return serving;
     }
 
+    public void setServing(String serving) {
+        this.serving = serving;
+    }
+
     public double getPrice() {
-        return this.price;
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

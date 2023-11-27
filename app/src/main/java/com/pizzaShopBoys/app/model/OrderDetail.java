@@ -17,10 +17,10 @@ public class OrderDetail {
     private int quantity;
     private double subTotal;
     @Column(columnDefinition = "double default 0")
-    private double discount=0;
+    private double discount = 0;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="order_id")
+    @JoinColumn(name = "order_id")
     private CustomerOrder customerOrder;
 
     // CONSTRUCTOR
@@ -94,5 +94,3 @@ public class OrderDetail {
         return discount;
     }
 }
-
-

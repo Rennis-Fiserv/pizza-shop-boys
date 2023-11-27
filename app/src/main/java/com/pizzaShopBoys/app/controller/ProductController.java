@@ -17,34 +17,36 @@ public class ProductController {
     ProductService productService;
 
     ProductController() {
-    this.productService = new ProductService();
+        this.productService = new ProductService();
     }
 
     @GetMapping("/products")
-    ResponseEntity<List<Product>> getAllProducts(){
+    ResponseEntity<List<Product>> getAllProducts() {
         return ResponseEntity.status(HttpStatus.OK).body(productService.getAllProducts());
     }
 
     @PostMapping("/products")
-    ResponseEntity<Product> createProduct(@RequestBody Product product){
+    ResponseEntity<Product> createProduct(@RequestBody Product product) {
         return productService.createProduct(product).map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PutMapping("/products/{id}")
-    ResponseEntity<Product> updateProduct(@RequestBody Product product){
+    ResponseEntity<Product> updateProduct(@RequestBody Product product) {
         return productService.updateProduct(product).map(ResponseEntity::ok)
-                .orElseGet(()->ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
     @DeleteMapping("/products")
-    ResponseEntity<Void> deleteAllProducts(){
+    ResponseEntity<Void> deleteAllProducts() {
         productService.deleteAllProducts();
         return ResponseEntity.noContent().build();
     }
+
     @DeleteMapping("/products/{id}")
-    ResponseEntity<Void> deleteProductById(@PathVariable int id){
+    ResponseEntity<Void> deleteProductById(@PathVariable int id) {
         productService.deleteProductById(id);
         return ResponseEntity.noContent().build();
     }
 }
-//}
+// }
