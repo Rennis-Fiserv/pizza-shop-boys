@@ -14,6 +14,7 @@ public class OrderDetail {
     private int orderId;
     @Id
     private int productId;
+
     private int quantity;
     private double subTotal;
     @Column(columnDefinition = "double default 0")
@@ -34,7 +35,13 @@ public class OrderDetail {
         this.subTotal = subTotal;
         this.discount = 0;
     }
-
+    public OrderDetail(int orderId, OrderDetail orderDetail) {
+        this.orderId = orderId;
+        this.productId = orderDetail.getProductId();
+        this.quantity = orderDetail.getQuantity();
+        this.subTotal = subTotal;
+        this.discount = 0;
+    }
     public OrderDetail(int orderId, int productId, int quantity, double subTotal, double discount) {
         this.orderId = orderId;
         this.productId = productId;

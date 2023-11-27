@@ -1,5 +1,6 @@
 package com.pizzaShopBoys.app.controller;
 
+import com.pizzaShopBoys.app.dto.CategoryDTO;
 import com.pizzaShopBoys.app.model.Product;
 import com.pizzaShopBoys.app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,21 +22,22 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    ResponseEntity<List<Product>> getAllProducts() {
+    ResponseEntity<List<CategoryDTO>> getAllProducts() {
         return ResponseEntity.status(HttpStatus.OK).body(productService.getAllProducts());
     }
 
-    @PostMapping("/products")
-    ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        return productService.createProduct(product).map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
 
-    @PutMapping("/products/{id}")
-    ResponseEntity<Product> updateProduct(@RequestBody Product product) {
-        return productService.updateProduct(product).map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
+//    @PostMapping("/products")
+//    ResponseEntity<Product> createProduct(@RequestBody Product product) {
+//        return productService.createProduct(product).map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+//    }
+
+//    @PutMapping("/products/{id}")
+//    ResponseEntity<Product> updateProduct(@RequestBody Product product) {
+//        return productService.updateProduct(product).map(ResponseEntity::ok)
+//                .orElseGet(() -> ResponseEntity.notFound().build());
+//    }
 
     @DeleteMapping("/products")
     ResponseEntity<Void> deleteAllProducts() {
