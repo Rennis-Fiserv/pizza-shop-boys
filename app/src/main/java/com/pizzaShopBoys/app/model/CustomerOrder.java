@@ -1,6 +1,5 @@
 package com.pizzaShopBoys.app.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 // import java.time.LocalDate;
@@ -11,14 +10,10 @@ import java.util.List;
 public class CustomerOrder {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int zip;
     private int employeeFk;
     private int customerFk;
-
-    @Column(name = "order_placed_date")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , shape = JsonFormat.Shape.STRING)
     private LocalDateTime orderPlacedDate;
     private String streetAddress;
     @OneToMany(mappedBy = "customerOrder", fetch = FetchType.EAGER)
@@ -39,9 +34,9 @@ public class CustomerOrder {
         this.orderDetails = orderDetails;
     }
 
-
-    public CustomerOrder(int zip, int employeeFk, int customerFk, LocalDateTime orderPlacedDate,
+    public CustomerOrder(int id, int zip, int employeeFk, int customerFk, LocalDateTime orderPlacedDate,
             String streetAddress) {
+        this.id = id;
         this.zip = zip;
         this.employeeFk = employeeFk;
         this.customerFk = customerFk;

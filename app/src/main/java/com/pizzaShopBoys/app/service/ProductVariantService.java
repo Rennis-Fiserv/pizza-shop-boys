@@ -1,6 +1,5 @@
 package com.pizzaShopBoys.app.service;
 
-import com.pizzaShopBoys.app.model.Product;
 import com.pizzaShopBoys.app.model.ProductVariant;
 import com.pizzaShopBoys.app.repository.ProductVariantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +27,13 @@ public class ProductVariantService {
         return productVariantRepository.findById(id);
     }
 
-    public ProductVariant getProductVariantByProductAndServing(int productId, String serving){
-        return productVariantRepository.findByProductIdAndServing(productId,serving);
-    }
     // UPDATE
-//    public Optional<ProductVariant> updateProductVariant(ProductVariant var) {
-//        if (productVariantRepository.existsById(var.getId())) {
-//            return Optional.of(productVariantRepository.save(var));
-//        } else
-//            return Optional.empty();
-//    }
+    public Optional<ProductVariant> updateProductVariant(ProductVariant var) {
+        if (productVariantRepository.existsById(var.getId())) {
+            return Optional.of(productVariantRepository.save(var));
+        } else
+            return Optional.empty();
+    }
 
     // DELETE
     public void deleteProductVariantById(int id) {

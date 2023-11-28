@@ -4,7 +4,6 @@ import { useContext } from "react"
 import {UserContext} from '../../contexts/UserContext'
 import { useNavigate } from "react-router-dom"
 
-import './LoginForm.css'
 
 export default function LoginForm(){
 const {user, loginUser, logoutUser }= useContext(UserContext)
@@ -19,7 +18,7 @@ const navigate = useNavigate()
     async function loginFormHandler(data){
         const response = await fetchEmployee(data['id'])
         loginUser(response)
-        if(response['employeeRole'] == 'E') navigate('/employee/orders')
+        if(response['employeeRole'] == 'E') navigate('/employee')
         if (response ['employeeRole'] == 'M') navigate('/manager')
     }
     return (
