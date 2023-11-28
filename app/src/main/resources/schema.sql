@@ -34,9 +34,10 @@ CREATE TABLE if NOT EXISTS zip(
     state VARCHAR(45),
     PRIMARY KEY (zip));
 
-CREATE TABLE if NOT EXISTS order_details(
+CREATE TABLE if NOT EXISTS order_detail(
     order_id INT NOT NULL,
     product_id INT NOT NULL,
+    serving VARCHAR(255),
     quantity INT NOT NULL,
     discount NUMERIC DEFAULT 0.0,
     sub_total NUMERIC NOT NULL,

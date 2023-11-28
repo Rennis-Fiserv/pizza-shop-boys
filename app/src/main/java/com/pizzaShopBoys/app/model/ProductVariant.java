@@ -3,23 +3,23 @@ package com.pizzaShopBoys.app.model;
 import jakarta.persistence.*;
 
 @Entity
-@IdClass(ProductVariant.class)
+@IdClass(ProductVariantPK.class)
 public class ProductVariant {
+    @Id
+    @Column(name = "product_id")
+    private int productId;
 
     @Id
     private String serving;
     private double price;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "id" )
-//    private Product product;
 
     // CONSTRUCTORS
 
     public ProductVariant() {
     }
 
-    public ProductVariant( String serving, double price) {
+    public ProductVariant(Integer  productId, String serving, double price) {
+        this.productId = productId;
         this.serving = serving;
         this.price = price;
     }
@@ -27,6 +27,13 @@ public class ProductVariant {
     // GETTERS AND SETTERS
 
 
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
     public String getServing() {
         return serving;

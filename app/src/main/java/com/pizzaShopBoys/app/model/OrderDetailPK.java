@@ -4,6 +4,6 @@ import java.io.Serializable;
 
 public class OrderDetailPK implements Serializable {
     private int orderId;
-    private int productId;
+    private ProductVariant productVariant;
 
 }

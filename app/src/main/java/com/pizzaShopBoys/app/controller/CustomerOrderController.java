@@ -42,12 +42,18 @@ public class CustomerOrderController {
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder(customerOrder));
     }
 
+    @PostMapping("/customer-orders-raw")
+    ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrderDTO customerOrderDTO) {
+        return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder2(customerOrderDTO));
+
+
 
 
     @GetMapping("/customer-orders/byEmployeeByDate")
     public ResponseEntity<List<Object[]>> getOrdersByEmployeeByDate() {
         List<Object[]> result = customerOrderService.getOrdersByEmployeeByDate();
         return new ResponseEntity<>(result, HttpStatus.OK);
+
     }
     @GetMapping("/customer-orders/byZipByDate")
     public ResponseEntity<List<Object[]>> getOrdersByZipByDate() {
