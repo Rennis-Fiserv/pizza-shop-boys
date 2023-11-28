@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import "./LoginForm.css";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
+import Button from "@mui/material/Button";
 
 const customTheme = (outerTheme) =>
   createTheme({
@@ -104,7 +105,7 @@ export default function LoginForm() {
         />
       </ThemeProvider>
       <div className="space"></div>
-      <input className="logbttn" type="submit" value="Enter" />
+      <Button className="hey" type="submit">Enter</Button>
     </form>
   );
 }
