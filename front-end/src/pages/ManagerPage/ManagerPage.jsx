@@ -1,17 +1,18 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Box } from "@material-ui/core";
-import './MangerPage.css'
+import "./MangerPage.css";
 
 export default function ManagerPage() {
   const navigate = useNavigate();
 
   return (
-    <Box>
+    <Box className="box-container">
       <Button
         variant="contained"
         size="large"
         color="inherit"
+        className="top"
         onClick={() => navigate("orders")}
       >
         Start an Order
@@ -20,14 +21,16 @@ export default function ManagerPage() {
         variant="contained"
         size="large"
         color="inherit"
+        className="top"
         onClick={() => navigate("employee-management")}
       >
-        Employee Managment
+        Employee Management
       </Button>
       <Button
         variant="contained"
         size="large"
         color="inherit"
+        className="top"
         onClick={() => navigate("shop-metrics")}
       >
         Pizza Shop Statistics
