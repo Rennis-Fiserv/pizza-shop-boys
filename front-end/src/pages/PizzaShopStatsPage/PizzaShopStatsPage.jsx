@@ -41,7 +41,7 @@ const PizzaShopStatsPage = () => {
   // Extract unique zip codes, order placed dates, and employeeFKs from orders
   const uniqueZipCodes = [...new Set(order.map((order) => order.zip))];
   const uniqueOrderPlacedDates = [
-    ...new Set(order.map((order) => order.orderPlacedTime[2])),
+    ...new Set(order.map((order) => order.orderPlacedTime && order.orderPlacedTime[2])),
   ];
   const uniqueEmployeeFKs = [
     ...new Set(order.map((order) => order.employeeFk)),
