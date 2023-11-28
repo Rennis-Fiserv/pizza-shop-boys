@@ -51,7 +51,9 @@ const PizzaShopStatsPage = () => {
   const zipPieChartData = uniqueZipCodes.map((zipCode) => {
     const totalOrdersForZip = uniqueOrderPlacedDates.reduce((total, date) => {
       const ordersForDateAndZip = order.filter(
-        (order) => order.zip === zipCode && order.orderPlacedTime[2] === date
+        (order) => order.zip === zipCode &&
+        order.orderPlacedTime &&
+        order.orderPlacedTime[2] === date
       );
       return total + ordersForDateAndZip.length;
     }, 0);
@@ -69,7 +71,9 @@ const PizzaShopStatsPage = () => {
       (total, date) => {
         const ordersForDateAndEmployee = order.filter(
           (order) =>
-            order.employeeFk === employeeFk && order.orderPlacedTime[2] === date
+          order.employeeFk === employeeFk &&
+          order.orderPlacedTime &&
+          order.orderPlacedTime[2] === date
         );
         return total + ordersForDateAndEmployee.length;
       },
