@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,40 +49,37 @@ public class CustomerOrderService {
             OrderDetail od = orderDetails.get(i);
             orderDetailRepository.save(
                     new OrderDetail(
-                    od.getOrderId(), productVariantService.getProductVariantByProductAndServing(od.getProductId(),od.getServing()), od.getQuantity(), od.getSubTotal(),
-                    od.getDiscount()));
+                            od.getOrderId(),
+                            productVariantService.getProductVariantByProductAndServing(od.getProductId(),
+                                    od.getServing()),
+                            od.getQuantity(), od.getSubTotal(),
+                            od.getDiscount()));
         }
         return Optional.of(customerOrder);
     }
 
-
-
     @Transactional
     public Optional<CustomerOrder> createCustomerOrder2(CustomerOrderDTO customerOrderDTO) {
 
-//        Create Customer
-       Customer newCustomer = customerRepository.save(new Customer(
-               customerOrderDTO.getFirstName(),
-               customerOrderDTO.getLastName(),
-               customerOrderDTO.getPhone())
-       );
+        // Create Customer
+        Customer newCustomer = customerRepository.save(new Customer(
+                customerOrderDTO.getFirstName(),
+                customerOrderDTO.getLastName(),
+                customerOrderDTO.getPhone()));
 
-
-//       Create Order
-
-       CustomerOrder newCustomerOrder = customerOrderRepository.save(
-               new CustomerOrder(
-                       customerOrderDTO.getZip(),
-                       customerOrderDTO.getEmployeeId(), newCustomer.getId(), customerOrderDTO.getOrderPlacedDate(),
-                       customerOrderDTO.getStreetAddress()
-               )
-       );
+        // Create Order
+        LocalDateTime timeNow = LocalDateTime.now();
+        CustomerOrder newCustomerOrder = customerOrderRepository.save(
+                new CustomerOrder(
+                        customerOrderDTO.getZip(),
+                        customerOrderDTO.getEmployeeId(), newCustomer.getId(), timeNow,
+                        customerOrderDTO.getStreetAddress()));
         System.out.println(newCustomerOrder);
 
         for (int i = 0; i < customerOrderDTO.getOrderDetails().size(); ++i) {
-           OrderDetail orderDetail = customerOrderDTO.getOrderDetails().get(i);
+            OrderDetail orderDetail = customerOrderDTO.getOrderDetails().get(i);
 
-           orderDetailRepository.save(new OrderDetail(
+            orderDetailRepository.save(new OrderDetail(
                     newCustomerOrder.getId(),
                     productVariantService.getProductVariantByProductAndServing(orderDetail.getProductId(),
                             orderDetail.getServing()),
@@ -89,18 +87,14 @@ public class CustomerOrderService {
                     0,
                     0));
         }
-    return customerOrderRepository.findById(newCustomerOrder.getId());
-        }
+        return customerOrderRepository.findById(newCustomerOrder.getId());
+    }
 
-
-    
     public List<Object[]> getOrdersByEmployeeByDate() {
         return customerOrderRepository.getOrdersByEmployeeByDate();
     }
- 
+
     public List<Object[]> getOrdersByZipByDate() {
         return customerOrderRepository.getOrdersByZipByDate();
     }
 }
-
-
