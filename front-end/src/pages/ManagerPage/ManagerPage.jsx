@@ -6,7 +6,7 @@ export default function ManagerPage() {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="navbar">
       <Button
         variant="contained"
         size="large"
@@ -35,6 +35,6 @@ export default function ManagerPage() {
         Pizza Shop Statistics
       </Button>
       <Outlet />
-    </>
+    </div>
   );
 }

@@ -33,3 +33,7 @@
 .cart-item-remove{
     grid-area: remove;
 }
+
+button.remove:hover {
+    background-color: gray;
+  }
