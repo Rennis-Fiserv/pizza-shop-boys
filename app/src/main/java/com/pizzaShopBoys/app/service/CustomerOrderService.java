@@ -55,6 +55,7 @@ public class CustomerOrderService {
     }
 
 
+
     @Transactional
     public Optional<CustomerOrder> createCustomerOrder2(CustomerOrderDTO customerOrderDTO) {
 
@@ -90,5 +91,16 @@ public class CustomerOrderService {
         }
     return customerOrderRepository.findById(newCustomerOrder.getId());
     }}
+
+
+    
+    public List<Object[]> getOrdersByEmployeeByDate() {
+        return customerOrderRepository.getOrdersByEmployeeByDate();
+    }
+ 
+    public List<Object[]> getOrdersByZipByDate() {
+        return customerOrderRepository.getOrdersByZipByDate();
+    }
+}
 
 

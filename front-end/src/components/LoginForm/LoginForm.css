@@ -1,0 +1,39 @@
+button.hey {
+  border-color: black;
+  background-color: lightgray;
+  color: inherit;
+  border-radius: 15px;
+  font-size: xx-large;
+}
+
+button.hey:hover {
+  background-color: gray;
+}
+
+.space {
+  padding: 5px;
+}
+.logbttn:hover {
+  background-color: gray;
+}
+
+div.btext {
+  font-size: large !important;
+  align-self: center;
+  padding: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.login-input::-webkit-outer-spin-button,
+.login-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.login-input {
+  -moz-appearance: textfield;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #6b4539;
+  background-color: white;
+}

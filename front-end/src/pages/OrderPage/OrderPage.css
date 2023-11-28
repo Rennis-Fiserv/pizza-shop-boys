@@ -1,10 +1,10 @@
 .orders-layout{
-
     display: grid;
     grid-template-areas: 
     "menu cart";
     grid-template-columns: 1fr 375px;
     position: relative;
+    padding-top: 22px;
 }
 
 .orders-menu{

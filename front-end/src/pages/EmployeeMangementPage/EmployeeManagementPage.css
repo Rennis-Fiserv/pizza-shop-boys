@@ -1,0 +1,55 @@
+th,
+td,
+tr {
+  border: 1px solid gray;
+  padding: 30px;
+  text-align: center;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: copperplate;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h3.textA {
+  text-align: center;
+}
+
+table.textA {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.textB {
+  text-align: center;
+  margin-left: auto;
+  margin-right: 394px;
+}
+
+table.textC {
+  text-align: center;
+  margin-left: auto;
+  margin-right: 266px;
+}
+
+form.textA {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button.save {
+  margin-right: 10px;
+}
+
+button.save:hover {
+  background-color: gray;
+}
+
+button.add:hover {
+  background-color: gray;
+}
