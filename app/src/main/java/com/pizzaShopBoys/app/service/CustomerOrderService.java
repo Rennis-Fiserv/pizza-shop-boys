@@ -80,8 +80,7 @@ public class CustomerOrderService {
         for (int i = 0; i < customerOrderDTO.getOrderDetails().size(); ++i) {
            OrderDetail orderDetail = customerOrderDTO.getOrderDetails().get(i);
 
-
-            orderDetailRepository.save(new OrderDetail(
+           orderDetailRepository.save(new OrderDetail(
                     newCustomerOrder.getId(),
                     productVariantService.getProductVariantByProductAndServing(orderDetail.getProductId(),
                             orderDetail.getServing()),
