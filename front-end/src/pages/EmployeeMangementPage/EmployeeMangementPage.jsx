@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import './EmployeeManagementPage.css';
-import Button from '@mui/material/Button';
-
+import "./EmployeeManagementPage.css";
+import Button from "@mui/material/Button";
 
 const EmployeeManagementPage = () => {
-  
   const initialFormState = {
     id: 0,
     firstName: "",
@@ -24,24 +22,24 @@ const EmployeeManagementPage = () => {
       .then((data) => {
         setEmployees(data);
         setLoading(false);
-      })
+      });
   }, []);
 
   const remove = async (event, id) => {
     event.preventDefault();
-    console.log('Removing employee with ID:', id);
+    console.log("Removing employee with ID:", id);
     await fetch(`http://localhost:8080/api/employees/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
     }).then((response) => {
-      console.log('Delete response:', response);
+      console.log("Delete response:", response);
       let updatedEmployees = [...employees].filter((i) => i.id !== id);
       setEmployees(updatedEmployees);
     });
-  }
+  };
 
   const add = async (event) => {
     event.preventDefault();
@@ -111,11 +109,11 @@ const EmployeeManagementPage = () => {
               </td>
               <td>
                 <Button
-                className="save"
-                size="sm" 
-                type="submit" 
-                variant="contained"
-                color="inherit"
+                  className="save"
+                  size="sm"
+                  type="submit"
+                  variant="contained"
+                  color="inherit"
                 >
                   Save
                 </Button>
@@ -134,7 +132,6 @@ const EmployeeManagementPage = () => {
       </form>
     );
   });
-
 
   const handleEmployeeFieldChange = (event, employeeId) => {
     const { name, value } = event.target;
@@ -186,7 +183,9 @@ const EmployeeManagementPage = () => {
                     type="text"
                     name="firstName"
                     value={employee.firstName}
-                    onChange={(e) => setEmployee({ ...employee, firstName: e.target.value })}
+                    onChange={(e) =>
+                      setEmployee({ ...employee, firstName: e.target.value })
+                    }
                     placeholder="First Name"
                   />
                 </td>
@@ -195,7 +194,9 @@ const EmployeeManagementPage = () => {
                     type="text"
                     name="lastName"
                     value={employee.lastName}
-                    onChange={(e) => setEmployee({ ...employee, lastName: e.target.value })}
+                    onChange={(e) =>
+                      setEmployee({ ...employee, lastName: e.target.value })
+                    }
                     placeholder="Last Name"
                   />
                 </td>
@@ -204,7 +205,9 @@ const EmployeeManagementPage = () => {
                     type="text"
                     name="salary"
                     value={employee.salary}
-                    onChange={(e) => setEmployee({ ...employee, salary: e.target.value })}
+                    onChange={(e) =>
+                      setEmployee({ ...employee, salary: e.target.value })
+                    }
                     placeholder="Salary"
                   />
                 </td>
@@ -213,16 +216,19 @@ const EmployeeManagementPage = () => {
                     type="text"
                     name="employeeRole"
                     value={employee.employeeRole}
-                    onChange={(e) => setEmployee({ ...employee, employeeRole: e.target.value })}
+                    onChange={(e) =>
+                      setEmployee({ ...employee, employeeRole: e.target.value })
+                    }
                     placeholder="Role"
                   />
                 </td>
                 <td>
-                  <Button 
-                  size="sm" 
-                  variant="contained"
-                  color="inherit"
-                  type="submit"
+                  <Button
+                    size="sm"
+                    variant="contained"
+                    color="inherit"
+                    type="submit"
+                    className="add"
                   >
                     Add
                   </Button>

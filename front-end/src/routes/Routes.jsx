@@ -28,16 +28,16 @@ const routes = createBrowserRouter(
       </Route>
 
       <Route path="manager" element={<ManagerPage />}>
-          <Route
-            path="orders"
-            element={<OrderPage />}
-            loader={productsLoader}
-          ></Route>
-          <Route
-            path="employee-management"
-            element={<EmployeeManagementPage />}
-          ></Route>
-          <Route path="shop-metrics" element={<PizzaShopStatsPage />}></Route>
+        <Route
+          path="orders"
+          element={<OrderPage />}
+          loader={productsLoader}
+        ></Route>
+        <Route
+          path="employee-management"
+          element={<EmployeeManagementPage />}
+        ></Route>
+        <Route path="shop-metrics" element={<PizzaShopStatsPage />}></Route>
       </Route>
     </Route>
   )

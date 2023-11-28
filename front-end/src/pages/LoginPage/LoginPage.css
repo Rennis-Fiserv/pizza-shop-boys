@@ -1,63 +1,40 @@
 .logpage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #d68c75;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #dcdcdc;
 }
- 
+
 .login-card {
-    border: none;
-    flex-direction: column;
-    background-color: #e9a18b;
-    height: 600px;
-    width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    border-radius: 15px;
+  border: none;
+  flex-direction: column;
+  background-color: white;
+  height: 600px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 15px;
 }
- 
-.logform{
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    font-size: x-large;
-    flex-direction: column;
- 
+
+.logform {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  flex-direction: column;
 }
- 
-.logo{
-    position: relative;
-    bottom: 20vh;
-    height: 8vh;
-    color: #6b4539;
+
+.logo {
+  position: relative;
+  bottom: 20vh;
+  height: 8vh;
 }
-::placeholder{
-    text-align: center;
-    color: #6b4539;
-}
- 
-/* Chrome, Safari, Edge, Opera */
-.login-input::-webkit-outer-spin-button,
-.login-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
- 
-.login-input {
-  -moz-appearance: textfield;
+::placeholder {
   text-align: center;
-  border-radius: 5px;
-  border-color: #6b4539;
-  background-color: #d68c75;
-}
-.log-headding{
-    font-size: large !important;
-    align-self: start;
-    padding: 5px;
-}
-.login-input:hover {
-    background-color: #b67764;
+  color: #6b4539;
 }

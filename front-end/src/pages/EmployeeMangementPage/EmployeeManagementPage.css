@@ -1,46 +1,55 @@
-th, td, tr {
-    border: 1px solid gray;
-    padding: 30px;
-    text-align: center;
-    background: white;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: copperplate;
+th,
+td,
+tr {
+  border: 1px solid gray;
+  padding: 30px;
+  text-align: center;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: copperplate;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 h3.textA {
-    text-align: center;
+  text-align: center;
 }
 
 table.textA {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table.textB {
-    text-align: center;
-    margin-left: auto;
-    margin-right: 326px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 326px;
 }
 
 table.textC {
-    text-align: center;
-    margin-left: auto;
-    margin-right: 198px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 198px;
 }
 
 form.textA {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 button.save {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
+button.save:hover {
+  background-color: gray;
+}
+
+button.add:hover {
+  background-color: gray;
+}

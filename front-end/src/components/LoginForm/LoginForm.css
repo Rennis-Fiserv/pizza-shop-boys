@@ -1,16 +1,35 @@
 .logbttn {
-    border-color: #6b4539;
-    background-color: rgba(0, 255, 0, 0.534);
-    color: black;
-    border-radius: 5px;
-    font-size: xx-large;
+  border-color: #6b4539;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  font-size: xx-large;
 }
- 
- 
-.space{
-    padding: 5px;
+
+.space {
+  padding: 5px;
 }
 .logbttn:hover {
-    background-color: #b67764;
+  background-color: gray;
 }
- 
+
+div.btext {
+  font-size: large !important;
+  align-self: center;
+  padding: 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.login-input::-webkit-outer-spin-button,
+.login-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.login-input {
+  -moz-appearance: textfield;
+  text-align: center;
+  border-radius: 5px;
+  border-color: #6b4539;
+  background-color: white;
+}
