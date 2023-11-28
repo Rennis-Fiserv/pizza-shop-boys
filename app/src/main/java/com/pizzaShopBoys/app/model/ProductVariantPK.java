@@ -1,31 +1,22 @@
 package com.pizzaShopBoys.app.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-@Entity
-@IdClass(ProductVariantPK.class)
-public class ProductVariant {
-    @Id
+import java.io.Serializable;
+
+public class ProductVariantPK implements Serializable {
+
     @Column(name = "product_id")
     private int productId;
 
-    @Id
+    @Column(name = "serving")
     private String serving;
-    private double price;
 
-    // CONSTRUCTORS
-
-    public ProductVariant() {
-    }
-
-    public ProductVariant(Integer  productId, String serving, double price) {
+    public ProductVariantPK(){}
+    public ProductVariantPK(int productId, String serving){
         this.productId = productId;
         this.serving = serving;
-        this.price = price;
     }
-
-    // GETTERS AND SETTERS
-
 
     public int getProductId() {
         return productId;
@@ -41,13 +32,5 @@ public class ProductVariant {
 
     public void setServing(String serving) {
         this.serving = serving;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 }

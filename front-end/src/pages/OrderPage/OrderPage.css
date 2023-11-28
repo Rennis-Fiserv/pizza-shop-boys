@@ -1,25 +1,28 @@
 .orders-layout{
 
-    border: solid black 1px;
     display: grid;
     grid-template-areas: 
-    "a a b"
-    "a a b"
-    "c c b"
-    "c c b"
-    ;
-    grid-row
+    "menu cart";
+    grid-template-columns: 1fr 375px;
+    position: relative;
 }
 
 .orders-menu{
-    grid-area: a;
+    width: 100%;
+    max-width: 940px;
+    padding: 12px 12px;
+    grid-area: menu;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+    margin: 0 auto;
 }
 .cart-sidebar{
-    grid-area: b;
-    border: seagreen solid 1px;
+    padding: 12px;
+    grid-area: cart;
+    box-shadow: -2px 0px 4px 0 rgba(0 0 0 / 12%);
+    width:375px;
+    height:calc(100vh);
 }
 .contact{
     grid-area: c;

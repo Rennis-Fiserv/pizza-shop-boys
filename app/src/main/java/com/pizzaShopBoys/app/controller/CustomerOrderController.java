@@ -1,5 +1,6 @@
 package com.pizzaShopBoys.app.controller;
 
+import com.pizzaShopBoys.app.dto.CustomerOrderDTO;
 import com.pizzaShopBoys.app.model.CustomerOrder;
 import com.pizzaShopBoys.app.repository.CustomerOrderRepository;
 import com.pizzaShopBoys.app.repository.OrderDetailRepository;
@@ -41,6 +42,12 @@ public class CustomerOrderController {
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder(customerOrder));
     }
 
+    @PostMapping("/customer-orders-raw")
+    ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrderDTO customerOrderDTO) {
+        return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder2(customerOrderDTO));
+    }
+
+
 
     @GetMapping("/customer-orders/byEmployeeByDate")
     public ResponseEntity<List<Object[]>> getOrdersByEmployeeByDate() {
@@ -67,6 +74,7 @@ public class CustomerOrderController {
 //        customerService.deleteCustomerById(id);
 //        return ResponseEntity.noContent().build();
 //    }
+
 
     //
     // @PutMapping("/customers/{id}")

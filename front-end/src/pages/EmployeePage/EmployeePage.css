@@ -1,0 +1,26 @@
+.employee-navigation{
+    display: flex;
+    flex-direction: column;
+    column-gap: 12px;
+    padding: 16px 14px;
+    box-shadow: 0px 2px 4px 0 rgba(0 0 0 / 12%);;
+}
+
+.employee-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.employee-info h2 {
+    text-transform: capitalize;
+}
+
+.btn{
+    padding: 0 16px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    background:  #e5e7eb;
+    height: 32px;
+}
