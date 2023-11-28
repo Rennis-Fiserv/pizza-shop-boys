@@ -1,9 +1,13 @@
-.logbttn {
-  border-color: #6b4539;
-  background-color: white;
-  color: black;
-  border-radius: 5px;
+button.hey {
+  border-color: black;
+  background-color: lightgray;
+  color: inherit;
+  border-radius: 15px;
   font-size: xx-large;
+}
+
+button.hey:hover {
+  background-color: gray;
 }
 
 .space {
