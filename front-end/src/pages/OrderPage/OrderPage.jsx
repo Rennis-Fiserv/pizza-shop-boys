@@ -6,7 +6,30 @@ import Cart from "../../components/Cart/Cart"
 import './OrderPage.css'
 import DeliveryDetailsAndOrderCompletion from "../../components/Form/DeliveryDetailsAndOrderCompletion"
 
-export default function OrderPage(){    
+export default function OrderPage(){
+
+   let mockAPIProducts = [
+        {
+            id:1,
+            name:'pizza S',
+            price: 5.00,
+            serving: '12 in' 
+        },
+        {
+            id:2,
+            name:'pizza M',
+            price: 10.00,
+            serving: '14 in' 
+        },
+        {
+            id:3,
+            name:'pizza L',
+            price: 15.00,
+            serving: '16 in' 
+        }
+    
+    ]
+    
     return(
         <>
         <OrderDetailsProvidor>
@@ -17,11 +40,12 @@ export default function OrderPage(){
                 </div>
 
                 <div className="cart-sidebar">
-                <DeliveryDetailsAndOrderCompletion/>
                 <Cart/>
                 </div>
                 
-                
+                <div className="contact">
+                    <DeliveryDetailsAndOrderCompletion/>
+                </div>
             </div>
         </OrderDetailsProvidor>    
         </>

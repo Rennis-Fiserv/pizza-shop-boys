@@ -1,15 +1,15 @@
 package com.pizzaShopBoys.app.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@IdClass(ProductVariantPK.class)
 public class ProductVariant {
     @Id
-    @Column(name = "product_id")
-    private int productId;
-
-    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String serving;
     private double price;
 
@@ -18,21 +18,20 @@ public class ProductVariant {
     public ProductVariant() {
     }
 
-    public ProductVariant(Integer  productId, String serving, double price) {
-        this.productId = productId;
+    public ProductVariant(Integer id, String serving, double price) {
+        this.id = id;
         this.serving = serving;
         this.price = price;
     }
 
     // GETTERS AND SETTERS
 
-
-    public int getProductId() {
-        return productId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getServing() {
