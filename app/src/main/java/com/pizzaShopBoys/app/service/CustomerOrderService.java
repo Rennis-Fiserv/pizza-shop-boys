@@ -43,8 +43,10 @@ public class CustomerOrderService {
                 customerOrder.getStreetAddress()));
         for (int i = 0; i < orderDetails.size(); ++i) {
             OrderDetail od = orderDetails.get(i);
-            orderDetailRepository.save(od.getOrderId(), od.getProductId(), od.getQuantity(), od.getSubTotal(),
-                    od.getDiscount());
+            orderDetailRepository.save(
+                    new OrderDetail(
+                    od.getOrderId(), od.getProductId(),od.getServing(), od.getQuantity(), od.getSubTotal(),
+                    od.getDiscount()));
         }
         return Optional.of(customerOrder);
     }
@@ -79,6 +81,7 @@ public class CustomerOrderService {
             orderDetailRepository.save(new OrderDetail(
                     newCustomerOrder.getId(),
                     orderDetail.getProductId(),
+                    orderDetail.getServing(),
                     orderDetail.getQuantity(),
                     0,
                     0));

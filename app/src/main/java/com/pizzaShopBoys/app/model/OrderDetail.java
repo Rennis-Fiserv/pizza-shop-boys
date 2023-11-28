@@ -12,8 +12,18 @@ public class OrderDetail {
     @Id
     @Column(name = "order_id")
     private int orderId;
+
+//    private int productId;
+
+//    @Column(name = "serving")
+//    private String serving;
     @Id
-    private int productId;
+    @ManyToOne(fetch = FetchType.EAGER,  cascade = CascadeType.ALL)
+    @JoinColumns(value = {
+            @JoinColumn(name = "product_id", referencedColumnName = "product_id"),
+            @JoinColumn(name = "serving", referencedColumnName = "serving")
+    })
+    private ProductVariant productVariant = new ProductVariant();
     private int quantity;
     private double subTotal;
     @Column(columnDefinition = "double default 0")
@@ -27,27 +37,29 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderId, int productId, int quantity, double subTotal) {
+    public OrderDetail(int orderId, int productId, String serving, int quantity, double subTotal) {
         this.orderId = orderId;
-        this.productId = productId;
         this.quantity = quantity;
         this.subTotal = subTotal;
         this.discount = 0;
+        productVariant.setProductId(productId);
+        productVariant.setServing(serving);
     }
 
-    public OrderDetail(int orderId, int productId, int quantity, double subTotal, double discount) {
+    public OrderDetail(int orderId, int productId, String serving, int quantity, double subTotal, double discount) {
         this.orderId = orderId;
-        this.productId = productId;
         this.quantity = quantity;
         this.subTotal = subTotal;
         this.discount = discount;
+        productVariant.setProductId(productId);
+        productVariant.setServing(serving);
     }
 
     @Override
     public String toString() {
         return "OrderDetail{" +
                 "orderId=" + orderId +
-                ", productId=" + productId +
+//                ", productId=" + productId +
                 ", quantity=" + quantity +
                 ", subtotal=" + subTotal +
                 ", discount=" + discount +
@@ -58,8 +70,16 @@ public class OrderDetail {
         return quantity;
     }
 
+    public String getServing() {
+        return productVariant.getServing();
+    }
+
+    public void setServing(String serving) {
+        this.productVariant.setServing(serving);;
+    }
+
     public int getProductId() {
-        return productId;
+        return productVariant.getProductId();
     }
 
     public void setSubTotal(double subTotal) {
@@ -71,7 +91,7 @@ public class OrderDetail {
     }
 
     public void setProductId(int productId) {
-        this.productId = productId;
+        this.productVariant.setProductId(productId);
     }
 
     public double getSubTotal() {
