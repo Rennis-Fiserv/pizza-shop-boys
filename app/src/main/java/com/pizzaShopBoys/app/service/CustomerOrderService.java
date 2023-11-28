@@ -27,6 +27,9 @@ public class CustomerOrderService {
     @Autowired
     CustomerRepository customerRepository;
 
+    @Autowired
+    ProductVariantService productVariantService;
+
     public List<CustomerOrder> getAllCustomerOrders() {
         return customerOrderRepository.findAll();
     }
@@ -45,7 +48,7 @@ public class CustomerOrderService {
             OrderDetail od = orderDetails.get(i);
             orderDetailRepository.save(
                     new OrderDetail(
-                    od.getOrderId(), od.getProductId(),od.getServing(), od.getQuantity(), od.getSubTotal(),
+                    od.getOrderId(), productVariantService.getProductVariantByProductAndServing(od.getProductId(),od.getServing()), od.getQuantity(), od.getSubTotal(),
                     od.getDiscount()));
         }
         return Optional.of(customerOrder);
@@ -80,8 +83,8 @@ public class CustomerOrderService {
 
             orderDetailRepository.save(new OrderDetail(
                     newCustomerOrder.getId(),
-                    orderDetail.getProductId(),
-                    orderDetail.getServing(),
+                    productVariantService.getProductVariantByProductAndServing(orderDetail.getProductId(),
+                            orderDetail.getServing()),
                     orderDetail.getQuantity(),
                     0,
                     0));

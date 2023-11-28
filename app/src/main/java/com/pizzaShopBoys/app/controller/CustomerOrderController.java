@@ -43,7 +43,6 @@ public class CustomerOrderController {
     }
     @PostMapping("/customer-orders-raw")
     ResponseEntity<Optional<CustomerOrder>> createCustomerOrder(@RequestBody CustomerOrderDTO customerOrderDTO) {
-        System.out.println("here");
         return ResponseEntity.status(HttpStatus.OK).body(customerOrderService.createCustomerOrder2(customerOrderDTO));
     }
     //

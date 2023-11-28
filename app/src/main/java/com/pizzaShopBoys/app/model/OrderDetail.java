@@ -37,22 +37,20 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderId, int productId, String serving, int quantity, double subTotal) {
+    public OrderDetail(int orderId, ProductVariant productVariant, int quantity, double subTotal) {
         this.orderId = orderId;
         this.quantity = quantity;
         this.subTotal = subTotal;
         this.discount = 0;
-        productVariant.setProductId(productId);
-        productVariant.setServing(serving);
+        this.productVariant = productVariant;
     }
 
-    public OrderDetail(int orderId, int productId, String serving, int quantity, double subTotal, double discount) {
+    public OrderDetail(int orderId, ProductVariant productVariant, int quantity, double subTotal, double discount) {
         this.orderId = orderId;
         this.quantity = quantity;
         this.subTotal = subTotal;
         this.discount = discount;
-        productVariant.setProductId(productId);
-        productVariant.setServing(serving);
+        this.productVariant = productVariant;
     }
 
     @Override

@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import {Form, useForm} from 'react-hook-form'
 import { OrderDetailsContext } from '../../contexts/OrderDetailsContext'
-
+import axios from 'axios'
 import './DeliveryDetailsAndOrderCompletion.css'
 
 
@@ -9,11 +9,21 @@ import './DeliveryDetailsAndOrderCompletion.css'
 export default function DeliveryDetailsAndOrderCompletion(){
     const {register, handleSubmit, watch, setValue} = useForm()
     const {orderDetails} = useContext(OrderDetailsContext)
-    const completeOrder = (data) => {
-        data['orderDetails'] = orderDetails
+    const completeOrder = async (data) => {
+        data['orderDetails'] = orderDetails.map(({price, name, ...rest})=> rest)
         console.log(data)
+        try{
+        const response = await axios.post("http://localhost:8080/api/customer-orders-raw",data)
+        console.log(response)
+        console.log(response.data)
+        }
+        catch (error){
+            console.error('Error Submitting Form', error)
+        }
     }
+
     return(
+        
         <form onSubmit={handleSubmit(completeOrder)}>
             <div className='order-submit'>
                 <h2>Order Form</h2>

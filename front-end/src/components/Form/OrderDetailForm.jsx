@@ -12,11 +12,12 @@ export default function OrderDetailForm({product, category}){
     
     const onSubmit = (data) => {
         const newItem = {
-            id: product.id,
-            name: product.name,
-            size: selectedSize,
+            productId: product.id,
+            name:product.name,
+            serving: selectedSize,
             quantity: quantity,
-            price: product.prices[selectedSize]
+            price: product.prices[selectedSize],
+            subtotal: product.prices[selectedSize] *  quantity
         }
 
 

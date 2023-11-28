@@ -35,7 +35,7 @@ public class ProductService {
     public ArrayList<CategoryDTO> getAllProducts() {
         Map<String, CategoryDTO> categoryMap = new HashMap<>();
         List<Product> products = productRepository.findAll();
-
+        System.out.println(products);
         for (Product product : products){
             String category = product.getCategory();
 

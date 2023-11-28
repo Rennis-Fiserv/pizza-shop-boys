@@ -8,12 +8,12 @@ export default function Menu(){
     console.log(menu)
 
 return(
-    menu.map((categoryListOfProducts)=>{
+    menu.map((categoryListOfProducts,index)=>{
         return (
             <>
             <h1 className="menu-category-header">{categoryListOfProducts["category"]}</h1>
 
-            <div className="menu-products-in-category-container">
+            <div key={`yo-${index}`} className="menu-products-in-category-container">
             {categoryListOfProducts["products"].map((product)=>{
                 return(
                     
