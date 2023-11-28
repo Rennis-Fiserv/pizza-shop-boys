@@ -8,4 +8,9 @@ public class ProductVariantPK implements Serializable {
 
     private String serving;
 
+    public ProductVariantPK(){}
+    public ProductVariantPK(int productId, String serving){
+        this.productId = productId;
+        this.serving = serving;
+    }
 }

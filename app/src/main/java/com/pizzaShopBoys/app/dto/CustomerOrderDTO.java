@@ -1,5 +1,6 @@
 package com.pizzaShopBoys.app.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pizzaShopBoys.app.model.OrderDetail;
 
 import java.time.LocalDateTime;
@@ -9,7 +10,7 @@ public class CustomerOrderDTO {
     private String firstName;
     private String lastName;
 
-    private int employee;
+    private int employeeId;
 
     private String phone;
     private List<OrderDetail> orderDetails;
@@ -17,12 +18,17 @@ public class CustomerOrderDTO {
     private String streetAddress;
     private int zip;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime orderPlacedDate;
 
-    public CustomerOrderDTO(String firstName, String lastName, String phone, List<OrderDetail> orderDetails, String streetAddress, int zip, LocalDateTime orderPlacedDate) {
+    public CustomerOrderDTO() {
+    }
+
+    public CustomerOrderDTO(String firstName, String lastName, String phone, int employeeId, List<OrderDetail> orderDetails, String streetAddress, int zip, LocalDateTime orderPlacedDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
+        this.employeeId = employeeId;
         this.orderDetails = orderDetails;
         this.streetAddress = streetAddress;
         this.zip = zip;
@@ -45,12 +51,12 @@ public class CustomerOrderDTO {
         return firstName;
     }
 
-    public int getEmployee() {
-        return employee;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee(int employee) {
-        this.employee = employee;
+    public void setEmployeeId(int employee) {
+        this.employeeId = employee;
     }
 
     public void setFirstName(String firstName) {

@@ -11,6 +11,7 @@ import com.pizzaShopBoys.app.repository.OrderDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,8 +49,9 @@ public class CustomerOrderService {
         return Optional.of(customerOrder);
     }
 
+
     @Transactional
-    public Optional<CustomerOrder> createCustomerOrder(CustomerOrderDTO customerOrderDTO) {
+    public Optional<CustomerOrder> createCustomerOrder2(CustomerOrderDTO customerOrderDTO) {
 
 //        Create Customer
        Customer newCustomer = customerRepository.save(new Customer(
@@ -58,30 +60,30 @@ public class CustomerOrderService {
                customerOrderDTO.getPhone())
        );
 
-//       Create Order
-       CustomerOrder customerOrder = new CustomerOrder(
-               customerOrderDTO.getZip(),
-               customerOrderDTO.getEmployee(), newCustomer.getId(), customerOrderDTO.getOrderPlacedDate(),
-               customerOrderDTO.getStreetAddress());
 
-        CustomerOrder savedOrder = customerOrderRepository.save(customerOrder);
+//       Create Order
+
+       CustomerOrder newCustomerOrder = customerOrderRepository.save(
+               new CustomerOrder(
+                       customerOrderDTO.getZip(),
+                       customerOrderDTO.getEmployeeId(), newCustomer.getId(), customerOrderDTO.getOrderPlacedDate(),
+                       customerOrderDTO.getStreetAddress()
+               )
+       );
+        System.out.println(newCustomerOrder);
 
         for (int i = 0; i < customerOrderDTO.getOrderDetails().size(); ++i) {
+           OrderDetail orderDetail = customerOrderDTO.getOrderDetails().get(i);
 
-            OrderDetail od = new OrderDetail(savedOrder.getId(), customerOrderDTO.getOrderDetails().get(i));
-            orderDetailRepository.save(od);
+
+            orderDetailRepository.save(new OrderDetail(
+                    newCustomerOrder.getId(),
+                    orderDetail.getProductId(),
+                    orderDetail.getQuantity(),
+                    0,
+                    0));
         }
-    return Optional.of(savedOrder);
+    return customerOrderRepository.findById(newCustomerOrder.getId());
     }}
-//        var orderDetails = customerOrder.getOrderDetails();
-//        customerOrderRepository.save(new CustomerOrder(customerOrder.getId(), customerOrder.getZip(),
-//                customerOrder.getEmployeeFk(), customerOrder.getCustomerFk(), customerOrder.getOrderPlacedTime(),
-//                customerOrder.getStreetAddress()));
-//        for (int i = 0; i < orderDetails.size(); ++i) {
-//            OrderDetail od = orderDetails.get(i);
-//            orderDetailRepository.save(od.getOrderId(), od.getProductId(), od.getQuantity(), od.getSubTotal(),
-//                    od.getDiscount());
-//        }
-//        return Optional.of(customerOrder);
-//    }
+
 

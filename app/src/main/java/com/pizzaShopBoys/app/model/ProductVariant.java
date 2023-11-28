@@ -1,32 +1,38 @@
 package com.pizzaShopBoys.app.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@IdClass(ProductVariant.class)
 public class ProductVariant {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String serving;
     private double price;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "id" )
-//    private Product product;
 
     // CONSTRUCTORS
 
     public ProductVariant() {
     }
 
-    public ProductVariant( String serving, double price) {
+    public ProductVariant(Integer id, String serving, double price) {
+        this.id = id;
         this.serving = serving;
         this.price = price;
     }
 
     // GETTERS AND SETTERS
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getServing() {
         return serving;

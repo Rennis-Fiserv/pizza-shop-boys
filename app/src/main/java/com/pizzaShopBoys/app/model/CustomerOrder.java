@@ -1,5 +1,6 @@
 package com.pizzaShopBoys.app.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 // import java.time.LocalDate;
@@ -15,6 +16,9 @@ public class CustomerOrder {
     private int zip;
     private int employeeFk;
     private int customerFk;
+
+    @Column(name = "order_placed_date")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss" , shape = JsonFormat.Shape.STRING)
     private LocalDateTime orderPlacedDate;
     private String streetAddress;
     @OneToMany(mappedBy = "customerOrder", fetch = FetchType.EAGER)
