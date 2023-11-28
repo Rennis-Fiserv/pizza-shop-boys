@@ -2,8 +2,10 @@ button.hey {
   border-color: black;
   background-color: lightgray;
   color: inherit;
-  border-radius: 15px;
-  font-size: xx-large;
+  border-radius: 10px;
+  font-size: medium;
+  padding: 8px 16px;
+  width: 100%;
 }
 
 button.hey:hover {
@@ -11,7 +13,7 @@ button.hey:hover {
 }
 
 .space {
-  padding: 5px;
+  padding: 15px;
 }
 .logbttn:hover {
   background-color: gray;

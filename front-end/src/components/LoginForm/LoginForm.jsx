@@ -96,7 +96,8 @@ export default function LoginForm() {
   }
   return (
     <form className="logform" onSubmit={handleSubmit(loginFormHandler)}>
-      <div className="btext">{"Enter Employee ID:"}</div>
+      <div className="btext"></div>
+      <div>
       <ThemeProvider theme={customTheme(outerTheme)}>
         <TextField
           label="Employee ID"
@@ -106,6 +107,7 @@ export default function LoginForm() {
       </ThemeProvider>
       <div className="space"></div>
       <Button className="hey" type="submit">Enter</Button>
+      </div>
     </form>
   );
 }

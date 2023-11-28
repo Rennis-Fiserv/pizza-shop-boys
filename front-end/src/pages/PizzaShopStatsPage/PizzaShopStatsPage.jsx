@@ -103,7 +103,7 @@ const PizzaShopStatsPage = () => {
 
   return (
     <>
-      <h1 className="textA">Pizza Shop Statistics Page 🙈🐷</h1>
+      <h1 className="textA">Pizza Shop Statistics Page</h1>
 
       <div className="charts-container">
         {/* PieChart for Orders by ZipCode */}

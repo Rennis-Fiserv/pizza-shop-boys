@@ -3,12 +3,12 @@
     flex-direction: column;
     column-gap: 12px;
     padding: 16px 14px;
-    box-shadow: 0px 2px 4px 0 rgba(0 0 0 / 12%);;
+    box-shadow: 0px 2px 4px 0 rgba(0 0 0 / 12%);
 }
 
 .employee-info{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 16px;
 }
@@ -16,11 +16,18 @@
     text-transform: capitalize;
 }
 
-.btn{
-    padding: 0 16px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    background:  #e5e7eb;
-    height: 32px;
-}
+
+button.heys {
+    border-color: black;
+    background-color: lightgray;
+    color: inherit;
+    border-radius: 10px;
+    font-size: medium;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 8px 16px;
+  }
+  
+  button.heys:hover {
+    background-color: gray;
+  }
