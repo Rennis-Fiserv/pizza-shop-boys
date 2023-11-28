@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import EmployeePage from "../pages/EmployeePage/EmployeePage";
 import LoginPage from "../pages/LoginPage/LoginPage";
-import ManagerPage from "../ManagerPage";
+import ManagerPage from "../pages/ManagerPage/ManagerPage";
 import RootLayout from "../pages/RootLayout";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import { productsLoader } from "../util/requests/productsLoader";

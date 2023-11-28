@@ -1,28 +1,9 @@
 import { useEffect, useState } from "react";
 import './EmployeeManagementPage.css';
 import Button from '@mui/material/Button';
-import { createTheme } from '@mui/material/styles';
-import { ThemeProvider } from "@emotion/react";
 
 
 const EmployeeManagementPage = () => {
-
-  let theme = createTheme({
-    // Theme customization goes here as usual, including tonalOffset and/or
-    // contrastThreshold as the augmentColor() function relies on these
-  });
-  
-  theme = createTheme(theme, {
-    // Custom colors created with augmentColor go here
-    palette: {
-      salmon: theme.palette.augmentColor({
-        color: {
-          main: '#E9A18B',
-        },
-        name: 'custom',
-      }),
-    },
-  });
   
   const initialFormState = {
     id: 0,
@@ -93,8 +74,7 @@ const EmployeeManagementPage = () => {
   const employeesList = employees.map((employee) => {
     return (
       <form key={employee.id} onSubmit={(e) => handleSubmit(e, employee.id)}>
-        <ThemeProvider theme={theme}>
-        <table>
+        <table className="textA">
           <thead>
             <tr>
               <td style={{ whiteSpace: "nowrap" }}>
@@ -130,29 +110,19 @@ const EmployeeManagementPage = () => {
                 />
               </td>
               <td>
-                <Button 
+                <Button
+                className="save"
                 size="sm" 
                 type="submit" 
-                variant="outlined"
-                color="salmon"
-                sx={{
-                    ':hover': {
-                      bgcolor: 'pink', // theme.palette.primary.main
-                      color: 'white',
-                    },
-                }}>
+                variant="contained"
+                color="inherit"
+                >
                   Save
                 </Button>
                 <Button
                   size="sm"
-                  variant="outlined"
-                  color="salmon"
-                  sx={{
-                    ':hover': {
-                      bgcolor: 'pink', // theme.palette.primary.main
-                      color: 'white',
-                    },
-                  }}
+                  variant="contained"
+                  color="error"
                   onClick={(e) => remove(e, employee.id)}
                 >
                   Delete
@@ -161,7 +131,6 @@ const EmployeeManagementPage = () => {
             </tr>
           </thead>
         </table>
-        </ThemeProvider>
       </form>
     );
   });
@@ -195,21 +164,21 @@ const EmployeeManagementPage = () => {
   return (
     <>
       <div>
-        <h3>Employees</h3>
-        <table>
+        <h3 className="textA">Employees</h3>
+        <table className="textB">
           <thead>
             <tr>
-              <td width={218}>First Name</td>
-              <td width={218}>Last Name</td>
-              <td width={218}>Salary</td>
-              <td width={218}>Role</td>
+              <td width={242}>First Name</td>
+              <td width={242}>Last Name</td>
+              <td width={242}>Salary</td>
+              <td width={242}>Role</td>
             </tr>
           </thead>
         </table>
         <div>{employeesList}</div>
         {/* New employee form */}
         <form onSubmit={add}>
-          <table>
+          <table className="textC">
             <thead>
               <tr>
                 <td>
@@ -251,15 +220,9 @@ const EmployeeManagementPage = () => {
                 <td>
                   <Button 
                   size="sm" 
-                  variant="outlined"
-                  color="salmon"
+                  variant="contained"
+                  color="inherit"
                   type="submit"
-                  sx={{
-                    ':hover': {
-                      bgcolor: 'pink', // theme.palette.primary.main
-                      color: 'white',
-                    },
-                  }}
                   >
                     Add
                   </Button>

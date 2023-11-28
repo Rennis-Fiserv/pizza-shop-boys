@@ -1,94 +1,71 @@
 /* PizzaShopStatisticsPage.css */
+h1.textA {
+  text-align: center;
+}
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #ff6347; /* Tomato color */
-  }
-  
-  .charts-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-  }
-  
-  .chart-section {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    width: 3000px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #333;
-    text-align: center;
-  }
-  
-  h3 {
-    color: #ff6347;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin: 5px 0;
-    color: #333;
-  }
-  
-  /* Customize PieChart colors */
-  .recharts-pie-sector {
-    transition: transform 0.4s;
-  }
-  
-  .recharts-pie-label-line,
-  .recharts-pie-label-text {
-    fill: #333;
-  }
-  
-  .recharts-legend-item {
-    cursor: pointer;
-    margin-right: 20px;
-  }
+h2.textA {
+  text-align: center;
+}
 
-  .recharts-layer.recharts-pie-labels {
-    pointer-events: none;
-  }
-  
-  .recharts-pie-label {
-    pointer-events: auto;
-    fill: #333;
-    font-size: 12px;
-  }
-  
-  .recharts-tooltip {
-    border: 1px solid #ccc;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  .recharts-tooltip-label {
-    color: #ff6347;
-  }
-  
-  .recharts-tooltip-item {
-    color: #333;
-  }
-  
-  
+h3.textA {
+  text-align: center;
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.chart-section {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  width: 3000px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Customize PieChart colors */
+.recharts-pie-sector {
+  transition: transform 0.4s;
+}
+
+.recharts-pie-label-line,
+.recharts-pie-label-text {
+  fill: #333;
+}
+
+.recharts-legend-item {
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.recharts-layer.recharts-pie-labels {
+  pointer-events: none;
+}
+
+.recharts-pie-label {
+  pointer-events: auto;
+  fill: #333;
+  font-size: 12px;
+}
+
+.recharts-tooltip {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.recharts-tooltip-label {
+  color: #ff6347;
+}
+
+.recharts-tooltip-item {
+  color: #333;
+}
