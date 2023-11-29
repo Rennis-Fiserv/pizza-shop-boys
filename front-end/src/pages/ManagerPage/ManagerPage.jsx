@@ -34,6 +34,15 @@ export default function ManagerPage() {
       >
         Pizza Shop Statistics
       </Button>
+      <Button
+        variant="contained"
+        size="large"
+        color="inherit"
+        className="top"
+        onClick={() => navigate("/")}
+      >
+        Logout
+      </Button>
       <Outlet />
     </div>
   );
