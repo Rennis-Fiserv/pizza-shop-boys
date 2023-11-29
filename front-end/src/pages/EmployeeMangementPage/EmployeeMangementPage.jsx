@@ -78,6 +78,14 @@ const EmployeeManagementPage = () => {
               <td style={{ whiteSpace: "nowrap" }}>
                 <input
                   type="text"
+                  name="id"
+                  value={employee.id}
+                  onChange={(e) => handleEmployeeFieldChange(e, employee.id)}
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
                   name="firstName"
                   value={employee.firstName}
                   onChange={(e) => handleEmployeeFieldChange(e, employee.id)}
@@ -161,10 +169,11 @@ const EmployeeManagementPage = () => {
   return (
     <>
       <div>
-        <h3 className="textA">Employees</h3>
+        <h1 className="textA">Employees</h1>
         <table className="textB">
           <thead>
             <tr>
+              <td width={242}>ID</td>
               <td width={242}>First Name</td>
               <td width={242}>Last Name</td>
               <td width={242}>Salary</td>

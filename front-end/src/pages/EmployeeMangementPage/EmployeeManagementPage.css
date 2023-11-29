@@ -14,7 +14,7 @@ tr {
   box-sizing: border-box;
 }
 
-h3.textA {
+h1.textA {
   text-align: center;
 }
 
@@ -27,13 +27,13 @@ table.textA {
 table.textB {
   text-align: center;
   margin-left: auto;
-  margin-right: 394px;
+  margin-right: 272px;
 }
 
 table.textC {
   text-align: center;
   margin-left: auto;
-  margin-right: 266px;
+  margin-right: 388px;
 }
 
 form.textA {
